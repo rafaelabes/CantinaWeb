@@ -24,9 +24,9 @@
                             <div class="panel-heading">Consultar Funcionário</div>
                             <div class="panel-body">
                                 <label for="nome">Matrícula</label>
-                                <input type="text" class="form-control" placeholder="">
+                                <input type="text" name="matricula" class="form-control" placeholder="0000000">
                                 <label for="nome">Nome</label>
-                                <input type="text" class="form-control" placeholder="">
+                                <input type="text" name="nome" class="form-control" placeholder="Joao">
                                 <br>
                                 <button type="button" class="btn btn-primary">Consultar</button>                 
                                 <button type="button" class="btn btn-warning">Editar</button>

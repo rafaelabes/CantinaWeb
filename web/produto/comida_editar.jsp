@@ -22,11 +22,11 @@
                             <div class="panel-body">                        
                                 <div>
                                     <label for="nome">Código</label>
-                                    <input type="text" class="form-control" placeholder="" required>
+                                    <input type="text" name="codigo" class="form-control" placeholder="0000000" required>
                                     <label for="nome">Nome</label>
-                                    <input type="text" class="form-control" placeholder="" required>
+                                    <input type="text" name="nome" class="form-control" placeholder="digite o nome da comida" required>
                                     <label for="nome">Preço</label>
-                                    <input type="text" class="form-control" placeholder="" required>
+                                    <input type="text" name="preco" class="form-control" placeholder="00.00" required>
                                     <label for="nome">Ingredientes</label>
                                     <select class="form-control" name="ingredientes">
                                         <option value="">Leite</option>
@@ -36,7 +36,7 @@
                                         <option value="xl">Item</option>
                                     </select>
                                     <label for="nome">Quantidade</label>
-                                    <input type="text" class="form-control" placeholder="" required>
+                                    <input type="text" name="quantidade" class="form-control" placeholder="0" required>
                                     <br>
                                     <button type="submit" class="btn btn-success">Salvar</button>
                                     <a class="btn btn-primary" href="../produto/produto_editar.jsp" role="button">Voltar</a>

@@ -24,15 +24,15 @@
                                 <form name="Cadastro" action="ControlerAluno" method="post">
                                     <div class="form-group">
                                         <label for="nome">Nome</label>
-                                        <input type="text" class="form-control" name="nome" placeholder="Nome">
+                                        <input type="text" class="form-control" name="nome" placeholder="Digite seu nome">
                                     </div>
                                     <div class="form-group">
                                         <label for="nome">Turma</label>
-                                        <input type="text" class="form-control" name="turma" placeholder="turma">
+                                        <input type="text" class="form-control" name="turma" placeholder="Digite sua turma">
                                     </div>
                                     <div class="form-group">
                                         <label for="turma">Turno</label>
-                                        <input type="text" class="form-control" name="turno" placeholder="turno">
+                                        <input type="text" class="form-control" name="turno" placeholder="Digite seu turno">
                                     </div>
                                     <div class="form-group">
                                         <label for="turno">Saldo</label>

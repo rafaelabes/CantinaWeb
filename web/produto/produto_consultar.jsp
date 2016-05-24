@@ -27,7 +27,7 @@
                                     <option value="2">Bebida</option>
                                 </select>
                                 <label for="codigo">Código</label>
-                                <input type="text" class="form-control" placeholder="">
+                                <input type="text" name="codigo" class="form-control" placeholder="00000">
                                 <br>
                                 <button type="button" class="btn btn-primary">Consultar</button>                 
                                 <button type="button" class="btn btn-warning">Editar</button>

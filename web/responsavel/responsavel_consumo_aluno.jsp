@@ -23,13 +23,13 @@
                             <form>
                                 <div>
                                     <label for="matricula">Matrícula</label>
-                                    <input type="text" class="form-control" placeholder="">
+                                    <input type="text" name="matricula" class="form-control" placeholder="000000">
 
                                 </div>
                                 <div>
                                     <label for="data">Período</label>
-                                    <input type="text" class="form-control" placeholder="início">
-                                    <input type="text" class="form-control" placeholder="fim">
+                                    <input type="date" class="form-control" placeholder="início">
+                                    <input type="date" class="form-control" placeholder="fim">
 
                                 </div>
                                 <a href="../index.jsp" class="btn btn-primary active" role="button">Consultar</a>

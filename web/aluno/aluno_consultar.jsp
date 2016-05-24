@@ -20,14 +20,14 @@
                     <div class="panel panel-success">
                         <div class="panel-heading">Consultar Alunos</div>
                         <div class="panel-body">
-                            <form>
+                            <form id="consultarAlunos">
                                 <div class="form-group">
                                     <label for="nome">Matricula</label>
-                                    <input type="text" class="form-control" id="" placeholder="Nome">
+                                    <input type="text" name="matricula" class="form-control"  placeholder="0000">
                                 </div>
                                 <div class="form-group">
                                     <label for="nome">Nome</label>
-                                    <input type="text" class="form-control" id="" placeholder="Nome">
+                                    <input type="text" name="nome" class="form-control" placeholder="Digite seu nome">
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">Consultar</button>

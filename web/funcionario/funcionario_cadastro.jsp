@@ -23,15 +23,15 @@
                             <div class="panel-body">
                                 <form name="Cadastro" action="../ServletAluno" method="post">
                                     <label for="nome">Nome</label>
-                                    <input type="text" class="form-control" placeholder="">
+                                    <input type="text" name="nome" class="form-control" placeholder="Joao">
                                     <label for="nome">Escola</label>
-                                    <input type="text" class="form-control" placeholder="">
+                                    <input type="text" name="escola" class="form-control" placeholder="Pedacinho do céu">
                                     <label for="nome">Matrícula</label>
-                                    <input type="text" class="form-control" placeholder="">
+                                    <input type="text" name="matricula" class="form-control" placeholder="0000000">
                                     <label for="nome">Login</label>
-                                    <input type="text" class="form-control" placeholder="">
+                                    <input type="text" name="login" class="form-control" placeholder="Joaoteste">
                                     <label for="nome">Senha</label>
-                                    <input type="text" class="form-control" placeholder="">
+                                    <input type="text" name="senha" class="form-control" placeholder="************">
                                     <br>
                                     <button type="submit" class="btn btn-primary">Salvar</button>
                                 </form>

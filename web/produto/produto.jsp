@@ -24,11 +24,11 @@
                             <form>
                                 <div class="form-group">
                                     <label for="nome">Nome</label>
-                                    <input type="text" class="form-control" id="" placeholder="Nome">
+                                    <input type="text" class="form-control" name="nome" placeholder="Digite o seu nome">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Senha</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
+                                    <input type="password" class="form-control" name="senha" id="exampleInputPassword1" placeholder="Digite a sua senha">
                                 </div>
                                 <button type="submit" class="btn btn-primary">Entrar</button>
                                 <a href="index.jsp" class="btn btn-success active" role="button">Voltar</a>

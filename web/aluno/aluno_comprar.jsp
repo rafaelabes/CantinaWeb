@@ -26,7 +26,7 @@
                                 <div class="row">
                                     <div class="col-sm-2">
                                         <label for="nome">Saldo</label>
-                                        <input type="text" class="form-control" disabled="true" value= "<%= aluno.getSaldo() %>" >
+                                        <input type="text" name="saldo" class="form-control" disabled="true" value= "<%= aluno.getSaldo() %>" >
                                     </div>
 
                                 </div>

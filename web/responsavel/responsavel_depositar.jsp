@@ -34,18 +34,18 @@
 
                                 <div class="form-group">
                                     <label for="nome">Saldo</label>
-                                    <input type="text" class="form-control" id="" placeholder="">
+                                    <input name="saldo" type="text" class="form-control" placeholder="00.00">
                                 </div>
                                 <div>
 
                                     <label for="nome">Efetuar Depósito</label>
-                                    <input type="text" class="form-control" id="" placeholder="">
+                                    <input type="text" name="deposito" class="form-control"  placeholder="00.00">
                                 </div>
                                 <button type="button" class="btn btn-primary">Depositar</button> 
                                 <div>
 
                                     <label for="nome">Novo Saldo</label>
-                                    <input type="text" class="form-control" id="" placeholder="">
+                                    <input type="text" name="saldo" class="form-control"  placeholder="00.00">
                                 </div>
 
 

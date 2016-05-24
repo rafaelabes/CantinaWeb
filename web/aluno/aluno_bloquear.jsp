@@ -20,14 +20,14 @@
                     <div class="panel panel-success">
                         <div class="panel-heading">Bloquear Produtos</div>
                         <div class="panel-body">
-                            <form>
+                            <form id="bloquearprodutos">
                                 <div class="form-group">
                                     <label for="nome">Matricula</label>
-                                    <input type="text" class="form-control" id="" placeholder="Nome">
+                                    <input type="text" name="matricula" class="form-control" placeholder="0000">
                                 </div>
                                 <div class="form-group">
                                     <label for="nome">Nome</label>
-                                    <input type="text" class="form-control" id="" placeholder="Nome">
+                                    <input type="text" name="nome" class="form-control" placeholder="Digite o nome">
                                 </div>
                                 <div>
                                     <label for="codigo">Produtos</label>

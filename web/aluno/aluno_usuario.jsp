@@ -28,14 +28,14 @@
                                     <div class="form-group">
                                       <label class="col-md-4 control-label" for="login_aluno">Login</label>  
                                       <div class="col-md-4">
-                                      <input id="login_aluno" name="login_aluno" type="text" class="form-control input-md" required="true">
+                                      <input id="login_aluno" name="login_aluno" type="text" class="form-control input-md" required>
                                       </div>
                                     </div>
                                     <!-- Password input-->
                                     <div class="form-group">
                                       <label class="col-md-4 control-label" for="senha_aluno">Senha</label>
                                       <div class="col-md-4">
-                                        <input id="senha_aluno" name="senha_aluno" type="password" class="form-control input-md" required="true">
+                                        <input id="senha_aluno" name="senha_aluno" type="password" class="form-control input-md" required>
                                       </div>
                                     </div>
                                     <!-- Button -->

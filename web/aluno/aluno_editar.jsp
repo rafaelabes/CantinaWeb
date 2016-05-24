@@ -20,22 +20,22 @@
                     <div class="panel panel-success">
                         <div class="panel-heading">Alterar Aluno</div>
                         <div class="panel-body">
-                            <form>
+                            <form id="alterarAluno">
                                 <div class="form-group">
                                     <label for="nome">Matricula</label>
-                                    <input type="text" class="form-control" id="" placeholder="Nome">
+                                    <input type="text" name="matricula"  value="" class="form-control" placeholder="00000">
                                 </div>
                                 <div class="form-group">
                                     <label for="nome">Nome</label>
-                                    <input type="text" class="form-control" id="" placeholder="Nome">
+                                    <input type="text" name="nome" class="form-control" value="" placeholder="Digite o seu nome">
                                 </div>
                                 <div class="form-group">
                                     <label for="nome">Turma</label>
-                                    <input type="text" class="form-control" id="" placeholder="Nome">
+                                    <input type="text" name="turma" class="form-control" value="" placeholder="Digite sua turma">
                                 </div>
                                 <div class="form-group">
                                     <label for="nome">Turno</label>
-                                    <input type="text" class="form-control" id="" placeholder="Nome">
+                                    <input type="text" name="turno" class="form-control" value="" placeholder="Digite o seu turno">
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">Salvar</button>

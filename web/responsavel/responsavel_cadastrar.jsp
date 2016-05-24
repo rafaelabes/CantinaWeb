@@ -23,27 +23,27 @@
                             <form>
                                 <div class="form-group">
                                     <label for="nome">CPF</label>
-                                    <input type="text" class="form-control" id="" placeholder="Nome">
+                                    <input type="text" name="cpf" class="form-control"  placeholder="Digite seu cpf">
                                 </div>
                                 <div class="form-group">
                                     <label for="nome">Nome</label>
-                                    <input type="text" class="form-control" id="" placeholder="Nome">
+                                    <input type="text" name="nome" class="form-control" placeholder="Digite seu nome">
                                 </div>
                                 <div class="form-group">
                                     <label for="nome">Telefone</label>
-                                    <input type="text" class="form-control" id="" placeholder="Nome">
+                                    <input type="text" name="telefone" class="form-control" placeholder="Digite seu telefone">
                                 </div>
                                 <div class="form-group">
                                     <label for="nome">Email</label>
-                                    <input type="text" class="form-control" id="" placeholder="Nome">
+                                    <input type="text" name="email" class="form-control"  placeholder="Digite seu email">
                                 </div>
                                 <div class="form-group">
                                     <label for="nome">Login</label>
-                                    <input type="text" class="form-control" id="" placeholder="Nome">
+                                    <input type="text" name="login"class="form-control" placeholder="Digite um Login">
                                 </div>
                                 <div class="form-group">
                                     <label for="nome">Senha</label>
-                                    <input type="text" class="form-control" id="" placeholder="Nome">
+                                    <input type="text" name="senha" class="form-control" placeholder="Digite uma senha">
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">Salvar</button>

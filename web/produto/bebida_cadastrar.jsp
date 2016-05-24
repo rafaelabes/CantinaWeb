@@ -25,15 +25,15 @@
                                 <div>
                                     <br>
                                     <label for="nome">Código</label>
-                                    <input type="text" class="form-control" placeholder="" required>
+                                    <input type="text" name="codigo" class="form-control" placeholder="000000000" required>
                                     <label for="nome">Nome</label>
-                                    <input type="text" class="form-control" placeholder="" required>
+                                    <input type="text" name="nome" class="form-control" placeholder="Digite o seu nome" required>
                                     <label for="nome">Fornecedor</label>
-                                    <input type="text" class="form-control" placeholder="" required>
+                                    <input type="text"  name="fornecedor" class="form-control" placeholder="Digite o nome do fornecedor" required>
                                     <label for="nome">Preço</label>
-                                    <input type="text" class="form-control" placeholder="" required>
+                                    <input type="text" name="preco" class="form-control" placeholder="00,00" required>
                                     <label for="nome">Quantidade</label>
-                                    <input type="text" class="form-control" placeholder="" required>
+                                    <input type="text" name="quantidade" class="form-control" placeholder="0" required>
                                     <br>
                                     <button type="submit" class="btn btn-success">Salvar</button>
                                     <a class="btn btn-primary" href="../produto/produto_cadastrar.jsp" role="button">Voltar</a>
