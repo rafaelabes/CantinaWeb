@@ -1,0 +1,34 @@
+<div>
+    <!-- Nav tabs -->
+    <ul class="nav nav-pills" role="tablist">
+        <li role="presentation" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                Aluno <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a href="ControlerAluno?opcao=cadastro">Cadastrar</a></li>
+                <li><a href="../aluno/aluno_consultar.jsp" >Consultar</a></li>
+
+                <li role="separator" class="divider"></li>
+            </ul>
+        </li>
+        <li role="presentation" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                Produto <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a href="../produto/produto_bloquear.jsp">Bloquear/Desbloquear</a></li>                         
+
+            </ul>
+        </li>
+        <li role="presentation" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                Usuário <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a href="../usuario/usuario_info.jsp">Visualizar</a></li>
+            </ul>
+        </li>
+    </ul>
+
+
