@@ -23,10 +23,14 @@
                          <div class="panel panel-success">
                             <div class="panel-heading">Consultar Funcionário</div>
                             <div class="panel-body">
+                                <div class="form-group">
                                 <label for="nome">Matrícula</label>
-                                <input type="text" name="matricula" class="form-control" placeholder="0000000">
+                                <input type="text" name="matricula" class="form-control" placeholder="0000000" required>
+                                </div>
+                                <div class="form-group">
                                 <label for="nome">Nome</label>
-                                <input type="text" name="nome" class="form-control" placeholder="Joao">
+                                <input type="text" name="nome" class="form-control" placeholder="Joao" required>
+                                </div>
                                 <br>
                                 <button type="button" class="btn btn-primary">Consultar</button>                 
                                 <button type="button" class="btn btn-warning">Editar</button>

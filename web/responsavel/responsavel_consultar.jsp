@@ -23,27 +23,27 @@
                             <form>
                                 <div class="form-group">
                                     <label for="nome">CPF</label>
-                                    <input type="text" name="cpf" class="form-control"  placeholder="Digite seu cpf">
+                                    <input type="text" name="cpf" class="form-control"  placeholder="Digite seu cpf" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="nome">Nome</label>
-                                    <input type="text" name="nome" class="form-control" placeholder="Digite seu nome">
+                                    <input type="text" name="nome" class="form-control" placeholder="Digite seu nome" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="nome">Telefone</label>
-                                    <input type="text" name="telefone" class="form-control" placeholder="Digite seu telefone">
+                                    <input type="text" name="telefone" class="form-control" placeholder="Digite seu telefone" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="nome">Email</label>
-                                    <input type="text" name="email" class="form-control"  placeholder="Digite seu email">
+                                    <input type="text" name="email" class="form-control"  placeholder="Digite seu email" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="nome">Login</label>
-                                    <input type="text" name="login"class="form-control" placeholder="Digite um Login">
+                                    <input type="text" name="login"class="form-control" placeholder="Digite um Login" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="nome">Senha</label>
-                                    <input type="text" name="senha" class="form-control" placeholder="Digite uma senha">
+                                    <input type="text" name="senha" class="form-control" placeholder="Digite uma senha" required>
                                 </div>
 
 

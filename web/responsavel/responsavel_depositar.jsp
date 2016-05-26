@@ -39,7 +39,7 @@
                                 <div>
 
                                     <label for="nome">Efetuar Depósito</label>
-                                    <input type="text" name="deposito" class="form-control"  placeholder="00.00">
+                                    <input type="text" name="deposito" class="form-control"  placeholder="00.00" required>
                                 </div>
                                 <button type="button" class="btn btn-primary">Depositar</button> 
                                 <div>

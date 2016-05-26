@@ -47,7 +47,7 @@
                                      <div class="form-group">
                                     <label for="nome">Quantidade</label>
                                     <input type="text" name="quantidade" class="form-control" placeholder="0" required>
-                                    <br> 
+                                    <br>  
                                      </div>
                                     <button type="submit" class="btn btn-success">Salvar</button>
                                     <a class="btn btn-primary" href="../produto/produto_editar.jsp" role="button">Voltar</a>

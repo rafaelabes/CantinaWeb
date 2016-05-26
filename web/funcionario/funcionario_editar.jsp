@@ -21,16 +21,26 @@
                          <div class="panel panel-success">
                             <div class="panel-heading">Editar Funcionário</div>
                             <div class="panel-body">
+                                <div class="form-group">
                                 <label for="nome">Nome</label>
-                                    <input type="text" name="nome" class="form-control" placeholder="Joao">
+                                    <input type="text" name="nome" class="form-control" placeholder="Joao" required>
+                                    </div>
+                                <div class="form-group">
                                     <label for="nome">Escola</label>
-                                    <input type="text" name="escola" class="form-control" placeholder="Pedacinho do céu">
+                                    <input type="text" name="escola" class="form-control" placeholder="Pedacinho do céu" required >
+                                </div>
+                                <div class="form-group">'
                                     <label for="nome">Matrícula</label>
-                                    <input type="text" name="matricula" class="form-control" placeholder="0000000">
+                                    <input type="text" name="matricula" class="form-control" placeholder="0000000" required>
+                                </div>
+                                <div class="form-group">
                                     <label for="nome">Login</label>
-                                    <input type="text" name="login" class="form-control" placeholder="Joaoteste">
+                                    <input type="text" name="login" class="form-control" placeholder="Joaoteste" required>
+                                </div>
+                                <div class="form-group">
                                     <label for="nome">Senha</label>
-                                    <input type="text" name="senha" class="form-control" placeholder="************">
+                                    <input type="text" name="senha" class="form-control" placeholder="************" required>
+                                </div>
                                     <br>
                                     
                                 <button type="button" class="btn btn-success">Salvar</button>

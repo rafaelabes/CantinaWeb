@@ -23,7 +23,7 @@
                             <form>
                                 <div>
                                     <label for="matricula">Matrícula</label>
-                                    <input type="text" name="matricula" class="form-control" placeholder="000000">
+                                    <input type="text" name="matricula" class="form-control" placeholder="000000" required>
 
                                 </div>
                                 <div>

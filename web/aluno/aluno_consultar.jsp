@@ -23,11 +23,11 @@
                             <form id="consultarAlunos">
                                 <div class="form-group">
                                     <label for="nome">Matricula</label>
-                                    <input type="text" name="matricula" class="form-control"  placeholder="0000">
+                                    <input type="text" name="matricula" class="form-control"  placeholder="0000" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="nome">Nome</label>
-                                    <input type="text" name="nome" class="form-control" placeholder="Digite seu nome">
+                                    <input type="text" name="nome" class="form-control" placeholder="Digite seu nome"required>
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">Consultar</button>

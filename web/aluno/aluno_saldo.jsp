@@ -23,7 +23,7 @@
                             <form>
                                 <div class="form-group">
                                     <label for="nome">Saldo</label>
-                                    <input type="text" name="saldo" class="form-control" placeholder="00000">
+                                    <input type="text" name="saldo" class="form-control" placeholder="00000" required>
                                 </div>
 
                                 <a href="../aluno/aluno_consultar.jsp" class="btn btn-success active" role="button">Voltar</a>

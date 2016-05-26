@@ -23,6 +23,7 @@
                             <form>
 
                                 <div>
+                                     <div class="form-group">
                                     <label for="codigo">Aluno</label>
                                     <select class="form-control" name="tipoProduto">
                                         <option value="1">João</option>
@@ -31,9 +32,10 @@
                                         <option value="4">Maria</option>
 
                                     </select>
-
+                                     </div>
                                 </div>
                                 <div>
+                                     <div class="form-group">
                                     <label for="codigo">Produtos</label>
                                     <select class="form-control" name="tipoProduto">
                                         <option value="1">Refrigerante</option>
@@ -42,7 +44,7 @@
                                         <option value="4">Leite</option>
 
                                     </select>
-
+                                     </div>
                                 </div>
                                 <div>
                                     <br>

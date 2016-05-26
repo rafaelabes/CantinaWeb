@@ -21,13 +21,17 @@
                          <div class="panel panel-success">
                             <div class="panel-heading">Consultar Produto</div>
                             <div class="panel-body">
+                                 <div class="form-group">
                                 <label for="codigo">Tipo</label>
                                 <select class="form-control" name="tipoProduto">
                                     <option value="1">Comida</option>
                                     <option value="2">Bebida</option>
                                 </select>
+                                 </div>
+                                 <div class="form-group">
                                 <label for="codigo">Código</label>
-                                <input type="text" name="codigo" class="form-control" placeholder="00000">
+                                <input type="text" name="codigo" class="form-control" placeholder="00000" required>
+                                 </div>
                                 <br>
                                 <button type="button" class="btn btn-primary">Consultar</button>                 
                                 <button type="button" class="btn btn-warning">Editar</button>
