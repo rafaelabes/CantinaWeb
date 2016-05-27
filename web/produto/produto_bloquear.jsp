@@ -24,7 +24,7 @@
 
                                 <div>
                                      <div class="form-group">
-                                    <label for="codigo">Aluno</label>
+                                    <label for="produtoAluno">Aluno</label>
                                     <select class="form-control" name="tipoProduto">
                                         <option value="1">João</option>
                                         <option value="2">José</option>
@@ -36,7 +36,7 @@
                                 </div>
                                 <div>
                                      <div class="form-group">
-                                    <label for="codigo">Produtos</label>
+                                    <label for="tipoProduto">Produtos</label>
                                     <select class="form-control" name="tipoProduto">
                                         <option value="1">Refrigerante</option>
                                         <option value="2">Salgadinhos</option>

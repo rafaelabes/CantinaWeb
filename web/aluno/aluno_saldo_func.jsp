@@ -22,7 +22,7 @@
                         <div class="panel-body">
                             <form>
                                 <div class="form-group">
-                                    <label for="nome">Saldo</label>
+                                    <label for="saldo">Saldo</label>
                                     <input type="text" name="saldo" class="form-control" disabled placeholder="100.00">
                                 </div>
 

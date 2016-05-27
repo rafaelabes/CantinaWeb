@@ -22,7 +22,7 @@
                         <div class="panel-body">
                             <form>
                                 <div class="form-group">
-                                    <label for="nome">CPF</label>
+                                    <label for="cpf">CPF</label>
                                     <input type="text" name="cpf" class="form-control"  placeholder="Digite seu cpf" required>
                                 </div>
                                 <div class="form-group">
@@ -30,19 +30,19 @@
                                     <input type="text" name="nome" class="form-control" placeholder="Digite seu nome" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="nome">Telefone</label>
+                                    <label for="telefone">Telefone</label>
                                     <input type="text" name="telefone" class="form-control" placeholder="Digite seu telefone" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="nome">Email</label>
+                                    <label for="email">Email</label>
                                     <input type="text" name="email" class="form-control"  placeholder="Digite seu email" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="nome">Login</label>
+                                    <label for="login">Login</label>
                                     <input type="text" name="login"class="form-control" placeholder="Digite um Login" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="nome">Senha</label>
+                                    <label for="senha">Senha</label>
                                     <input type="text" name="senha" class="form-control" placeholder="Digite uma senha" required>
                                 </div>
 

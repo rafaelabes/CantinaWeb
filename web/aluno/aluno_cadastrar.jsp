@@ -27,15 +27,15 @@
                                         <input type="text" class="form-control" name="nome" placeholder="Digite seu nome" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="nome">Turma</label>
+                                        <label for="turma">Turma</label>
                                         <input type="text" class="form-control" name="turma" placeholder="Digite sua turma" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="turma">Turno</label>
+                                        <label for="turno">Turno</label>
                                         <input type="text" class="form-control" name="turno" placeholder="Digite seu turno" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="turno">Saldo</label>
+                                        <label for="saldo">Saldo</label>
                                         <input type="text" class="form-control" name="saldo" placeholder="saldo" required>
                                         <!--Campos hidden não aparecem para o usuario digitar são setados-->
                                         <% if (usuarioAluno != null) { %>

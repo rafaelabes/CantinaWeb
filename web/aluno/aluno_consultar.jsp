@@ -22,7 +22,7 @@
                         <div class="panel-body">
                             <form id="consultarAlunos">
                                 <div class="form-group">
-                                    <label for="nome">Matricula</label>
+                                    <label for="matricula">Matricula</label>
                                     <input type="text" name="matricula" class="form-control"  placeholder="0000" required>
                                 </div>
                                 <div class="form-group">

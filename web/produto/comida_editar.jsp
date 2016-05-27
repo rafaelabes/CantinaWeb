@@ -22,7 +22,7 @@
                             <div class="panel-body">                        
                                 <div>
                                      <div class="form-group">
-                                    <label for="nome">Código</label>
+                                    <label for="codigo">Código</label>
                                     <input type="text" name="codigo" class="form-control" placeholder="0000000" required>
                                      </div>
                                      <div class="form-group">
@@ -30,12 +30,12 @@
                                     <input type="text" name="nome" class="form-control" placeholder="digite o nome da comida" required>
                                     </div>
                                      <div class="form-group">
-                                    <label for="nome">Preço</label>
+                                    <label for="preco">Preço</label>
                                     <input type="text" name="preco" class="form-control" placeholder="00.00" required>
                                      
                                      </div>
                                     <div class="form-group">
-                                    <label for="nome">Ingredientes</label>
+                                    <label for="ingredientes">Ingredientes</label>
                                     <select class="form-control" name="ingredientes">
                                         <option value="">Leite</option>
                                         <option value="s">Sal</option>
@@ -45,7 +45,7 @@
                                     </select>
                                     </div>
                                      <div class="form-group">
-                                    <label for="nome">Quantidade</label>
+                                    <label for="quantidade">Quantidade</label>
                                     <input type="text" name="quantidade" class="form-control" placeholder="0" required>
                                     <br>  
                                      </div>

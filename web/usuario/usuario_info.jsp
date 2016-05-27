@@ -24,11 +24,11 @@
                             <form>
                                 <div class="form-group">
                                     <label for="nome">Nome</label>
-                                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Nome">
+                                    <input type="text" class="form-control" id="exampleInputEmail1"  name="senha" placeholder="Digite seu login">
                                 </div>
                                 <div class="form-group">
                                     <label for="login">Login</label>
-                                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Login">
+                                    <input type="password" class="form-control" id="exampleInputEmail1" name="login" placeholder="**********">
                                 </div>                                       
                                 <button type="submit" class="btn btn-primary">Salvar</button>
                             </form>

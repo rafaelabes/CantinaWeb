@@ -22,7 +22,7 @@
                         <div class="panel-body">
                             <form id="alterarAluno">
                                 <div class="form-group">
-                                    <label for="nome">Matricula</label>
+                                    <label for="matricula">Matricula</label>
                                     <input type="text" name="matricula"  value="" class="form-control" placeholder="00000" required>
                                 </div>
                                 <div class="form-group">
@@ -30,11 +30,11 @@
                                     <input type="text" name="nome" class="form-control" value="" placeholder="Digite o seu nome" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="nome">Turma</label>
+                                    <label for="turma">Turma</label>
                                     <input type="text" name="turma" class="form-control" value="" placeholder="Digite sua turma"required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="nome">Turno</label>
+                                    <label for="turno">Turno</label>
                                     <input type="text" name="turno" class="form-control" value="" placeholder="Digite o seu turno" required>
                                 </div>
 

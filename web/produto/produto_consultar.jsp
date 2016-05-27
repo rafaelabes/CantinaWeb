@@ -22,7 +22,7 @@
                             <div class="panel-heading">Consultar Produto</div>
                             <div class="panel-body">
                                  <div class="form-group">
-                                <label for="codigo">Tipo</label>
+                                <label for="tipoProduto">Tipo</label>
                                 <select class="form-control" name="tipoProduto">
                                     <option value="1">Comida</option>
                                     <option value="2">Bebida</option>

@@ -26,19 +26,19 @@
                                     <input type="text" name="nome" class="form-control" placeholder="Joao" required>
                                     </div>
                                 <div class="form-group">
-                                    <label for="nome">Escola</label>
+                                    <label for="escola">Escola</label>
                                     <input type="text" name="escola" class="form-control" placeholder="Pedacinho do céu" required >
                                 </div>
                                 <div class="form-group">'
-                                    <label for="nome">Matrícula</label>
+                                    <label for="matricula">Matrícula</label>
                                     <input type="text" name="matricula" class="form-control" placeholder="0000000" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="nome">Login</label>
+                                    <label for="login">Login</label>
                                     <input type="text" name="login" class="form-control" placeholder="Joaoteste" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="nome">Senha</label>
+                                    <label for="senha">Senha</label>
                                     <input type="text" name="senha" class="form-control" placeholder="************" required>
                                 </div>
                                     <br>

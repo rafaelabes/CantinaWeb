@@ -23,7 +23,7 @@
 
                                 <div>
                                    <div class="form-group">
-                                    <label for="nome">Código</label>
+                                    <label for="codigo">Código</label>
                                     <input type="text" name="codigo" class="form-control" placeholder="000000000" required>
                                     </div>
                                         <div class="form-group">
@@ -31,15 +31,15 @@
                                     <input type="text" name="nome" class="form-control" placeholder="Digite o seu nome" required>
                                         </div>
                                         <div class="form-group">
-                                    <label for="nome">Fornecedor</label>
+                                    <label for="fornecedor">Fornecedor</label>
                                     <input type="text"  name="fornecedor" class="form-control" placeholder="Digite o nome do fornecedor" required>
                                         </div>
                                         <div class="form-group">
-                                    <label for="nome">Preço</label>
+                                    <label for="preco">Preço</label>
                                     <input type="text" name="preco" class="form-control" placeholder="00,00" required>
                                     </div>
                                       <div class="form-group">  
-                                        <label for="nome">Quantidade</label>
+                                        <label for="quantidade">Quantidade</label>
                                     <input type="text" name="quantidade" class="form-control" placeholder="0" required>
                                     </div>
                                     <br>

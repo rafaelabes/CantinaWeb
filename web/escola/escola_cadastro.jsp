@@ -19,28 +19,29 @@
                     <!-- Conteudo -->
                     <div class="panel panel-success">
                         <div class="panel panel-success">
-                            <div class="panel-heading">Cadastrar Funcionário</div>
+                            <div class="panel-heading">Cadastrar Escola</div>
                             <div class="panel-body">
-                                <form name="Cadastro" action="../ServletAluno" method="post">
+                                <form name="Cadastro" action="../ServletEscola" method="post">
                                     <div class="form-group">
                                     <label for="nome">Nome</label>
-                                    <input type="text" name="nome" class="form-control" placeholder="Joao" required>
+                                    <input type="text" name="nome" class="form-control" placeholder="Carrossel" required>
                                     </div>
                                     <div class="form-group">
-                                    <label for="escola">Escola</label>
-                                    <input type="text" name="escola" class="form-control" placeholder="Pedacinho do céu" required>
+                                    <label for="endereco">Endereco</label>
+                                    <input type="text" name="endereco" class="form-control" placeholder=" AV Pedacinho do céu" required>
                                     </div>
                                     <div class="form-group">
-                                    <label for="matricula">Matrícula</label>
-                                    <input type="text" name="matricula" class="form-control" placeholder="0000000" required>
+                                    <label for="telefone">Telefone</label>
+                                    <input type="text" name="telefone" class="form-control" placeholder="00 00000-0000" required>
                                     </div>
                                     <div class="form-group">
-                                    <label for="login">Login</label>
-                                    <input type="text" name="login" class="form-control" placeholder="Joaoteste" required>
+                                    <label for="email">Email</label>
+                                    <input type="text" name="email" class="form-control" placeholder="Carrossel@gmail.com" required>
                                     </div>
                                     <div class="form-group">
-                                    <label for="senha">Senha</label>
-                                    <input type="text" name="senha" class="form-control" placeholder="************">
+                                    <label for="responsavel">Responsavel</label>
+                                    <input type="text" name="responsavel" class="form-control" placeholder="Digite o nome do responsável" required>
+                                    </div>
                                     </div>
                                     <br>
                                     

@@ -21,16 +21,13 @@
                     <!-- Conteudo -->
                     <div class="panel panel-success"
                          <div class="panel panel-success">
-                            <div class="panel-heading">Consultar Funcionário</div>
+                            <div class="panel-heading">Consultar Escola</div>
                             <div class="panel-body">
                                 <div class="form-group">
-                                <label for="matricula">Matrícula</label>
-                                <input type="text" name="matricula" class="form-control" placeholder="0000000" required>
-                                </div>
-                                <div class="form-group">
                                 <label for="nome">Nome</label>
-                                <input type="text" name="nome" class="form-control" placeholder="Joao" required>
+                                <input type="text" name="nome" class="form-control" placeholder="Digite o nome da escola" required>
                                 </div>
+                                
                                 <br>
                                 <button type="button" class="btn btn-primary">Consultar</button>                 
                                 <button type="button" class="btn btn-warning">Editar</button>
@@ -38,23 +35,23 @@
                                 <br>
                                 <table class="table table-bordered">
                                     <br>
-                                    <th>Matrícula</th>
-                                    <th>Nome</th>
-                                    <th>Escola</th>
+                                    <th>Endereco</th>
+                                    <th>Email</th>
+                                    <th>Telefone</th>
                                     <tr>
-                                        <td>0001</td>
-                                        <td>Rafaela Batista</td>
-                                        <td>UNEB</td>
+                                        <td>aV 01</td>
+                                        <td>escola1@gmail.com</td>
+                                        <td>00000-0000</td>
                                     </tr>
                                     <tr>
-                                        <td>0002</td>
-                                        <td>Uoston</td>
-                                        <td>UNEB</td>
+                                        <td>aV 02</td>
+                                        <td>escola2@gmail.com</td>
+                                        <td>00000-0000</td>
                                     </tr>
                                     <tr>
-                                        <td>0003</td>
-                                        <td>Iago</td>
-                                        <td>UNEB</td>
+                                        <td>aV 03</td>
+                                        <td>escola3@gmail.com</td>
+                                        <td>00000-0000</td>
                                     </tr>
 
 

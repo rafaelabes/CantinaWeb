@@ -22,7 +22,7 @@
                         <div class="panel-body">
                             <form>
                                 <div>
-                                    <label for="codigo">Aluno</label>
+                                    <label for="listaAluno">Aluno</label>
                                     <select class="form-control" name="listaAluno">
                                         <option value="1">João</option>
                                         <option value="2">Ana</option>
@@ -33,12 +33,12 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="nome">Saldo</label>
+                                    <label for="saldo">Saldo</label>
                                     <input name="saldo" type="text" class="form-control" placeholder="00.00">
                                 </div>
                                 <div>
 
-                                    <label for="nome">Efetuar Depósito</label>
+                                    <label for="deposito">Efetuar Depósito</label>
                                     <input type="text" name="deposito" class="form-control"  placeholder="00.00" required>
                                 </div>
                                 <button type="button" class="btn btn-primary">Depositar</button> 
