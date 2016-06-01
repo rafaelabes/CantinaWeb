@@ -75,6 +75,8 @@ public class Usuario {
     private void bloquear() {
     }
 
-    private void excluir() {
+    public void excluir() {
+        UsuarioDAO usuario = new UsuarioDAO();
+        usuario.excluir(this);
     }
 }

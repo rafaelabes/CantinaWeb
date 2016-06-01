@@ -5,6 +5,9 @@
  */
 package controller;
 
+import java.util.ArrayList;
+import java.util.List;
+import model.AlunoDAO;
 import model.ResponsavelDAO;
 
 /**
@@ -15,6 +18,7 @@ public class Responsavel{
 
     private String nome,cpf, telefone, email;
     private int idResponsavel,idUsuario;
+    private ArrayList< Aluno > listaAluno = new ArrayList< Aluno >();
 
     public int getIdResponsavel() {
         return idResponsavel;
@@ -63,11 +67,26 @@ public class Responsavel{
     public void setEmail(String email) {
         this.email = email;
     }
-    public void consultar(Usuario usuario){
-        this.setIdUsuario(usuario.getIdUsuario());
+    public ArrayList<Aluno> getListaAluno() {
+        return listaAluno;
+    }
+
+    public void setListaAluno(ArrayList<Aluno> listaAluno) {
+        this.listaAluno = listaAluno;
+    }
+    
+    public void ConsultarListaAluno(){
+        Aluno aluno = new Aluno();
+        aluno.setIdResponsavel(this.getIdResponsavel());
+//        aluno.consultarLista();
+           AlunoDAO alunoDAO = new AlunoDAO();
+           this.setListaAluno(alunoDAO.consultarLista(aluno,null));
+    }
+    public void consultar(){
         ResponsavelDAO responsavelDAO = new ResponsavelDAO();
         responsavelDAO.consultar(this);
     }
+   
     private void cadastrar() {
 
     }

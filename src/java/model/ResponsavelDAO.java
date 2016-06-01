@@ -17,14 +17,15 @@ import java.sql.SQLException;
 public class ResponsavelDAO {
       public boolean consultar (Responsavel responsavel){
       Connection conexao = ConnectionFactory.getConnection();
-//     List<Aluno> listAluno = new ArrayList<Aluno>();
+//     List<Aluno> listAluno = new ArrayList<Aluno>();       
       boolean retorno = false;
+
       try{
       String sql = "select idResponsavel,nome,cpf,telefone,email from lp3.responsavel where 1=1";
       if(responsavel != null && responsavel.getIdUsuario() > 0){
-        sql +=" and idUsuario = "+responsavel.getIdUsuario()+"";
-      }
-       System.out.print(sql);
+        sql +=" and idUsuario = '"+responsavel.getIdUsuario()+"'";
+      }           
+            
       PreparedStatement stmt = conexao.prepareStatement(sql);
       ResultSet resposta = stmt.executeQuery();
 
@@ -36,11 +37,10 @@ public class ResponsavelDAO {
           responsavel.setEmail(resposta.getString("email"));
           retorno = true;
       }
-
       stmt.close();
       conexao.close();
       }catch(SQLException e){
-        System.out.println("Erro");
+        System.out.println("Erro na consulta do responsavel");
       }
       finally{
           return retorno;

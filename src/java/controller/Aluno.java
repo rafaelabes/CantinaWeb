@@ -15,20 +15,17 @@ import model.AlunoDAO;
  */
 public class Aluno{
 
-    private String nome,turno, turma, saldo, consumo;
+    private String nome,turno, turma,  consumo,situacao;
     private int matricula,idResponsavel,idUsuario;
+    private double saldo;
     public Aluno(){
     };
-    public Aluno(int matricula, String turma , String turno, String saldo, String consumo) {
+    public Aluno(int matricula, String turma , String turno, int saldo, String consumo) {
         this.matricula = matricula;
         this.turno = turma;
         this.turma = turno;
         this.saldo = saldo;
         this.consumo = consumo;
-    }
-
-    public Aluno(String matricula, String turma, String turno, String saldo, String consumo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public int getIdResponsavel() {
@@ -63,6 +60,14 @@ public class Aluno{
         this.nome = nome;
     }
 
+    public String getSituacao() {
+        return situacao;
+    }
+
+    public void setSituacao(String situacao) {
+        this.situacao = situacao;
+    }
+
     public String getTurno() {
         return turno;
     }
@@ -79,11 +84,11 @@ public class Aluno{
         this.turma = turma;
     }
 
-    public String getSaldo() {
+    public double getSaldo() {
         return saldo;
     }
 
-    public void setSaldo(String saldo) {
+    public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
 
@@ -94,27 +99,36 @@ public class Aluno{
     public void setConsumo(String consumo) {
         this.consumo = consumo;
     }
-    public void consultar(Usuario usuario){
-        this.setIdUsuario(usuario.getIdUsuario());
+    public boolean consultar(){
         AlunoDAO alunoDAO = new AlunoDAO();
-        alunoDAO.consultar(this);
- 
+        String condicao = " and situacao = 'Desbloqueado'";
+        if(alunoDAO.consultar(this,condicao))
+            return true;
+        return false;
     }
     public boolean cadastrar() {
         AlunoDAO aluno = new AlunoDAO();
         return aluno.cadastrar(this);  
     }
-
+//    public List<Aluno> consultarLista(){
+//        AlunoDAO alunoDAO = new AlunoDAO();
+//        return alunoDAO.consultarLista(this,null);
+//    }
     public void editar() {
-
+        AlunoDAO aluno = new AlunoDAO();
+        aluno.editar(this);  
     }
-
+    public void inserirSaldo() {
+        AlunoDAO aluno = new AlunoDAO();
+        aluno.inserirSaldo(this);  
+    }
     public void bloquear() {
 
     }
 
     public void excluir() {
-
+        AlunoDAO aluno = new AlunoDAO();
+        aluno.excluir(this); 
     }
 
     /* public int alterar(){

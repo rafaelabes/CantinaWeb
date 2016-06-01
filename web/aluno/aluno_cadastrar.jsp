@@ -24,19 +24,21 @@
                                 <form name="Cadastro" action="ControlerAluno" method="post">
                                     <div class="form-group">
                                         <label for="nome">Nome</label>
-                                        <input type="text" class="form-control" name="nome" placeholder="Digite seu nome" required>
+                                        <input type="text" class="form-control" name="nome" placeholder="Nome">
                                     </div>
                                     <div class="form-group">
-                                        <label for="turma">Turma</label>
-                                        <input type="text" class="form-control" name="turma" placeholder="Digite sua turma" required>
+                                        <label for="nome">Turma</label>
+                                        <input type="text" class="form-control" name="turma" placeholder="turma">
                                     </div>
                                     <div class="form-group">
                                         <label for="turno">Turno</label>
-                                        <input type="text" class="form-control" name="turno" placeholder="Digite seu turno" required>
-                                    </div>
+                                        <select class="form-control" name="turno">
+                                            <option value="Matutino" selected>Matutino</option>
+                                            <option value="Vespertino" >Vespertino</option>
+                                            <option value="Noturno" >Noturno</option>
+                                        </select>
+                                    </div>    
                                     <div class="form-group">
-                                        <label for="saldo">Saldo</label>
-                                        <input type="text" class="form-control" name="saldo" placeholder="saldo" required>
                                         <!--Campos hidden não aparecem para o usuario digitar são setados-->
                                         <% if (usuarioAluno != null) { %>
                                         <input type="hidden" class="form-control" name="idUsuario" value="<%=usuarioAluno.getIdUsuario()%>">

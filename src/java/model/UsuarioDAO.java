@@ -82,8 +82,8 @@ public class UsuarioDAO {
         conexao.close();
         //retorno do usuario com o nome prenchido 
         } catch (SQLException e) {
-            throw new RuntimeException(e);
-            //System.out.println("Erro");
+            //throw new RuntimeException(e);
+            System.out.println("Erro ao realizar o login");
         } finally {
             System.out.println("Sucesso!");
         }
@@ -95,5 +95,24 @@ public class UsuarioDAO {
                     + usuario.getTipo()+ "','" + usuario.getIdEscola() +"')";
             FabricaConexao fabrica = new FabricaConexao();          
             return  fabrica.cadastrar(sql);
-    }   
+    }
+      public int excluir (Usuario usuario){
+      Connection conexao = ConnectionFactory.getConnection();
+      int resposta=0;
+      try{
+      Statement sentenca = conexao.createStatement();
+
+      String sql = "delete from lp3.aluno "+
+                   "where idUsuario="+usuario.getIdUsuario();
+      resposta = sentenca.executeUpdate(sql);
+      
+      sentenca.close();
+      conexao.close();
+      }catch(SQLException erro){
+           System.out.println("Erro no cadastro do usuario");
+      }
+      finally{
+          return resposta;
+      }
+  }
 }

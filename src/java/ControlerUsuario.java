@@ -45,7 +45,7 @@ public class ControlerUsuario extends HttpServlet {
             String senha = request.getParameter("senha");
             String opcao = request.getParameter("opcao");
             
-      
+ 
             HttpSession session = request.getSession();
             Usuario usuarioSessao = (Usuario)session.getAttribute("usuario");
             if((usuarioSessao != null)&& (opcao == null)){
@@ -60,6 +60,7 @@ public class ControlerUsuario extends HttpServlet {
                 if(usuarioSessao != null){
                     usuario = usuarioSessao;
                 }else{
+                         System.out.print(login);
                     usuario.verificaLogin();
                 }
                 //verifica se o usuario e a senha estão corretos
@@ -77,10 +78,10 @@ public class ControlerUsuario extends HttpServlet {
                     }else if(usuario.getTipo() == 2 ){ 
                         //cria o objeto responsavel e consulta no banco com o idUsuario preenche os dados do objeto
                         Responsavel responsavel = new Responsavel();
-                        responsavel.consultar(usuario);
-                        
-                        if(responsavel != null)
-                        request.setAttribute("responsavel", responsavel);
+                        responsavel.setIdUsuario(usuario.getIdUsuario());
+                        responsavel.consultar();
+
+                        session.setAttribute("responsavel", responsavel);
                         
                         String urlResponsavel = "/index/index_responsavel.jsp";
                         RequestDispatcher rd = request.getRequestDispatcher(urlResponsavel);
@@ -88,13 +89,20 @@ public class ControlerUsuario extends HttpServlet {
                     //aluno
                     }else if(usuario.getTipo() == 3 ){
                         Aluno AlunoConsulta = new Aluno();
-                        AlunoConsulta.consultar(usuario);
-                        if(AlunoConsulta != null)
-                        request.setAttribute("aluno", AlunoConsulta);
+                        AlunoConsulta.setIdUsuario(usuario.getIdUsuario());
+                        
+                        if(AlunoConsulta.consultar()){
+                            request.setAttribute("aluno", AlunoConsulta);
 
-                        String urlAluno = "/index/index_aluno.jsp";
-                        RequestDispatcher rd = request.getRequestDispatcher(urlAluno);
-                        rd.forward(request,response);  
+                            String urlAluno = "/index/index_aluno.jsp";
+                            RequestDispatcher rd = request.getRequestDispatcher(urlAluno);
+                            rd.forward(request,response); 
+                        }else{
+                            String urlAluno = "/index/index.jsp";
+                            RequestDispatcher rd = request.getRequestDispatcher(urlAluno);
+                            rd.forward(request,response); 
+                        }
+                            
                     }
                 }else{
                     session.invalidate();

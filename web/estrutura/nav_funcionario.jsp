@@ -10,7 +10,7 @@
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <ul class="nav navbar-nav navbar-left">
-                    <li><a href="../index/index_funcionario.jsp">Home</a></li>
+                    <li><a href="ControlerUsuario">Home</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li ><a href="#">

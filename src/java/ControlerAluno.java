@@ -10,6 +10,8 @@ import controller.Responsavel;
 import controller.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Iterator;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -38,6 +40,14 @@ public class ControlerAluno extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             String opcao = request.getParameter("opcao");
+            
+            //verifica se existe usuario logado se, não redireciona para o index
+            HttpSession session = request.getSession(false);
+              if(session == null){
+                    String url = "/index/index.jsp";
+                    RequestDispatcher rd = request.getRequestDispatcher(url);
+                    rd.include(request,response);
+            }
 
             if((opcao != null) && (opcao.equals("cadastro"))){
                 String urlAluno = "/aluno/aluno_usuario.jsp";
@@ -45,7 +55,6 @@ public class ControlerAluno extends HttpServlet {
                 rd.forward(request,response);
             }else if(opcao.equals("inserirUsuario")){
                 //recupera o usuario do Responsavel da sessão
-                HttpSession session = request.getSession();
                 Usuario responsavelUsuario = (Usuario)session.getAttribute("usuario"); 
                 
                 //cria usuario aluno com os dados do cadastro 
@@ -74,44 +83,133 @@ public class ControlerAluno extends HttpServlet {
                     
             }else if(opcao.equals("inserir")){
                 //recupera o usuario da sessão
-                HttpSession session = request.getSession();
                 Usuario ResponsalveUsuario = (Usuario)session.getAttribute("usuario"); 
-                Usuario alunoUsuario  = (Usuario)request.getAttribute("usuarioAluno");
+//                Usuario alunoUsuario  = (Usuario)request.getAttribute("usuarioAluno");
+                
                 //cria um objeto responsavel para usar no cadastro do aluno
                 Responsavel responsavel = new Responsavel(); 
-                responsavel.consultar(ResponsalveUsuario);             
+                responsavel.setIdUsuario(ResponsalveUsuario.getIdUsuario());
+                responsavel.consultar();             
                 //cria o objeto aluno com os dados preenchidos realiza o cadastramento
+                
                 Aluno aluno = new Aluno(); 
                 aluno.setIdResponsavel(responsavel.getIdResponsavel());
                 aluno.setNome(request.getParameter("nome"));
                 aluno.setTurma(request.getParameter("turma"));
                 aluno.setTurno(request.getParameter("turno"));
-                aluno.setSaldo(request.getParameter("saldo"));
                 aluno.setIdUsuario(Integer.parseInt(request.getParameter("idUsuario")));
+                aluno.setSituacao("Desbloqueado");
                 aluno.setIdResponsavel(responsavel.getIdResponsavel());
-                //se o cadastro for realizado seta o objeto alunoUsuario e retorna para o cadastro
-                if(aluno.cadastrar()){
-                    String stringMensagem = "Cadastro realizado com sucesso!";
-                    String tipo = "-sucesso";
-                    Mensagem mensagem = new Mensagem(stringMensagem,tipo);
-                    
-                    request.setAttribute("mensagem", mensagem);                
-                    request.setAttribute("alunoUsuario", alunoUsuario);
 
-                    String urlAlunoCadastro = "/aluno/aluno_cadastrar.jsp";
+                //se o cadastro for realizado seta o objeto alunoUsuario e retorna para o cadastro
+                aluno.cadastrar();
+//                    String stringMensagem = "Cadastro realizado com sucesso!";
+//                    String tipo = "-sucesso";
+//                    Mensagem mensagem = new Mensagem(stringMensagem,tipo);
+//                    
+//                    request.setAttribute("mensagem", mensagem);  
+//                    String idUsuarioAluno = request.getParameter("idUsuario");
+//                    Usuario usuarioAluno = new Usuario();
+//                    usuarioAluno.setIdUsuario(Integer.parseInt(idUsuarioAluno));
+//                    usuarioAluno.consultar(null);
+//                    request.setAttribute("usuarioAluno", usuarioAluno);
+               
+                    String urlAlunoCadastro = "/index/index_responsavel.jsp";
                     RequestDispatcher rd = request.getRequestDispatcher(urlAlunoCadastro);
                     rd.include(request,response);
-                }
-//            out.println("<!DOCTYPE html>");
-//            out.println("<html>");
-//            out.println("<head>");
-//            out.println("<title>Servlet ControlerAluno</title>");            
-//            out.println("</head>");
-//            out.println("<body>");
-//            out.println("<h1>Servlet ControlerAluno at " + responsavel.getIdResponsavel()+ "</h1>");
-//            out.println("</body>");
-//            out.println("</html>");
+                
+            //consulta os alunos
+            }else if(opcao.equals("consultar")){
+                //recupera o usuario do responsavel
+                Usuario responsavelUsuario = (Usuario)session.getAttribute("usuario"); 
+                //cria o objeto do responsavel e preenche o objeto
+                Responsavel responsavel = new Responsavel(); 
+                responsavel.setIdUsuario(responsavelUsuario.getIdUsuario());
+                responsavel.consultar(); 
+                responsavel.ConsultarListaAluno();
+                //seta o parametro responsavel
+                request.setAttribute("responsavel", responsavel);
+             
+                String urlAluno = "/aluno/aluno_consultar.jsp";
+                RequestDispatcher rd = request.getRequestDispatcher(urlAluno);
+                rd.forward(request,response);
+            }else if(opcao.equals("editar")){
+                //pega a matricula cria o objeto aluno com a matricula e consulta o aluno
+                String mat = request.getParameter("mat");
+                Aluno aluno = new Aluno();
+                aluno.setMatricula(Integer.parseInt(mat));
+                aluno.consultar();
+                //passa o objeto aluno
+                request.setAttribute("aluno", aluno);
+                String urlAluno = "/aluno/aluno_editar.jsp";
+                RequestDispatcher rd = request.getRequestDispatcher(urlAluno);
+                rd.forward(request,response);                               
+            }else if(opcao.equals("editarAluno")){
+                //pega a matricula cria o objeto aluno com a matricula e consulta o aluno
+                String matriculaEditar = request.getParameter("matriculaEditar");
+                String nomeEditar = request.getParameter("nomeEditar");
+                String turmaEditar = request.getParameter("turmaEditar");
+                String turnoEditar = request.getParameter("turnoEditar");
+                String situacao = request.getParameter("situacao");
+                //criar o objeto edita e consulta
+                Aluno aluno = new Aluno();
+                aluno.setMatricula(Integer.parseInt(matriculaEditar));
+                aluno.setNome(nomeEditar);
+                aluno.setTurma(turmaEditar);
+                aluno.setTurno(turnoEditar);
+                aluno.setSituacao(situacao);
+                aluno.editar();
+                aluno.consultar();
+                
+                //passa o objeto aluno
+               // request.setAttribute("aluno", aluno);
+                
+                                //recupera o usuario do responsavel
+                Usuario responsavelUsuario = (Usuario)session.getAttribute("usuario"); 
+                //cria o objeto do responsavel e preenche o objeto
+                Responsavel responsavel = new Responsavel(); 
+                responsavel.setIdUsuario(responsavelUsuario.getIdUsuario());
+                responsavel.consultar(); 
+                responsavel.ConsultarListaAluno();
+                //seta o parametro responsavel
+                request.setAttribute("responsavel", responsavel);
+                
+                String urlAluno = "/aluno/aluno_consultar.jsp";
+                RequestDispatcher rd = request.getRequestDispatcher(urlAluno);
+                rd.forward(request,response);                               
+            }else if(opcao.equals("saldo")){
+                //pega a matricula cria o objeto aluno com a matricula e consulta o aluno
+                String mat = request.getParameter("mat");
+                Aluno aluno = new Aluno();
+                aluno.setMatricula(Integer.parseInt(mat));
+                aluno.consultar();
+                
+//                
+//                //recupera o usuario do responsavel
+//                Usuario responsavelUsuario = (Usuario)session.getAttribute("usuario"); 
+//                //cria o objeto do responsavel e preenche o objeto
+//                Responsavel responsavel = new Responsavel(); 
+//                responsavel.setIdUsuario(responsavelUsuario.getIdUsuario());
+//                responsavel.consultar(); 
+//                responsavel.ConsultarListaAluno();
+//                
+//                //seta o parametro responsavel
+//                request.setAttribute("responsavel", responsavel); 
+                request.setAttribute("aluno", aluno); 
+                String urlAluno = "/aluno/aluno_saldo.jsp";
+                RequestDispatcher rd = request.getRequestDispatcher(urlAluno);
+                rd.forward(request,response);                                  
+            }else if(opcao.equals("inserirSaldo")){
+                
+                Aluno aluno = new Aluno();
+                
+                aluno.setMatricula(Integer.parseInt(request.getParameter("matricula")));
+                aluno.setSaldo(Integer.parseInt(request.getParameter("saldo")));
+                aluno.inserirSaldo();
+                
+                
             }
+                    
 
         }
     }

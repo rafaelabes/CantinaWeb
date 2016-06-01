@@ -19,7 +19,7 @@ public class ConnectionFactory {
         Connection conexao = null;
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
-            conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/lp3", "root", "");
+            conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/lp3", "root", "123456");
 
         } catch (SQLException erro) {
             System.out.println("erro, verifique se o driver foi incluido como biblioteca do projeto");
