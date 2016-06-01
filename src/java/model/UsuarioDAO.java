@@ -72,7 +72,6 @@ public class UsuarioDAO {
             ResultSet rs = sentenca.executeQuery();      
         //trata o retorno do sql
         while (rs.next()) {
-            usuario.setLogin(rs.getString("login"));
             usuario.setTipo(rs.getInt("tipo"));
             usuario.setIdUsuario(rs.getInt("idUsuario"));
             usuario.setIdEscola(rs.getInt("idEscola"));

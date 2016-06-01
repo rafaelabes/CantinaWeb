@@ -65,7 +65,6 @@ public class ControlerUsuario extends HttpServlet {
                 if(usuarioSessao != null){
                     usuario = usuarioSessao;
                 }else{
-                         System.out.print(login);
                     usuario.verificaLogin();
                 }
                 //verifica se o usuario e a senha estão corretos
@@ -115,12 +114,8 @@ public class ControlerUsuario extends HttpServlet {
                     RequestDispatcher rd = request.getRequestDispatcher(url);
                     rd.include(request,response);
                 }
-            }else if((opcao != null) && (opcao.equals("false"))){
-                    session.invalidate();
-                    String url = "/index/index.jsp";
-                    RequestDispatcher rd = request.getRequestDispatcher(url);
-                    rd.include(request,response);
             }else{
+                    session.invalidate();
                     String url = "/index/index.jsp";
                     RequestDispatcher rd = request.getRequestDispatcher(url);
                     rd.include(request,response);
