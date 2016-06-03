@@ -1,8 +1,10 @@
 <%-- 
     Document   : nav_funcionario
-    Created on : 21/03/2016, 22:05:27
+    Created on : 03/06/2016, 22:05:27
     Author     : uoston
 --%>
+<%@page import="controller.Funcionario"%>
+<%@page import="controler.Mensagem"%>
 <%@page import="controller.Usuario"%>
 <div class="row" >
     <div class="col-md-2"></div>

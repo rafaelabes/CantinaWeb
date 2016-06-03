@@ -5,6 +5,7 @@
  * and open the template in the editor.
  */
 import controller.Aluno;
+import controller.Funcionario;
 import controller.Responsavel;
 import controller.Usuario;
 import java.io.IOException;
@@ -74,6 +75,11 @@ public class ControlerUsuario extends HttpServlet {
                     session.setAttribute("usuario", usuario);
                     //funcionario
                     if(usuario.getTipo() == 1){
+                        Funcionario funcionario = new Funcionario();
+                        funcionario.setIdUsuario(usuario.getIdUsuario());
+                        funcionario.consultar();
+
+                        session.setAttribute("funcionario", funcionario);
                         
                         String urlFuncionario = "/index/index_funcionario.jsp";
                         RequestDispatcher rd = request.getRequestDispatcher(urlFuncionario);

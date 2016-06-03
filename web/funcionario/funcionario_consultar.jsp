@@ -3,7 +3,13 @@
     Created on : 12/03/2016, 23:28:33
     Author     : Rafaela Batista
 --%>
-
+<%@page import="controller.Funcionario"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="controller.Aluno"%>
+<%@page import="controller.Responsavel"%>
+<%Funcionario funcionario = (Funcionario) request.getAttribute("funcionario");%>
 
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

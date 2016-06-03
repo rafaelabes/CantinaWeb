@@ -4,8 +4,11 @@
     Author     : Rafaela Batista
 --%>
 
+<%@page import="controller.Funcionario"%>
+<%@page import="controller.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%Funcionario funcionario = (Funcionario) request.getAttribute("funcionario");%>
 <html>
     <jsp:include page="../estrutura/header_info.jspf"/> 
     <body>
@@ -21,30 +24,35 @@
                         <div class="panel panel-success">
                             <div class="panel-heading">Cadastrar Funcionário</div>
                             <div class="panel-body">
-                                <form name="Cadastro" action="../ServletAluno" method="post">
+                                <form name="Cadastro" action="ControlerFuncionario" method="post">
                                     <div class="form-group">
                                     <label for="nome">Nome</label>
-                                    <input type="text" name="nome" class="form-control" placeholder="Joao" required>
+                                    <input type="text" name="nome" class="form-control" placeholder="Nome..." required>
                                     </div>
                                     <div class="form-group">
                                     <label for="escola">Escola</label>
-                                    <input type="text" name="escola" class="form-control" placeholder="Pedacinho do céu" required>
+                                    <input type="text" name="escola" class="form-control" placeholder="Nome da Escola..." required>
                                     </div>
                                     <div class="form-group">
-                                    <label for="matricula">Matrícula</label>
-                                    <input type="text" name="matricula" class="form-control" placeholder="0000000" required>
+                                    <label for="cpf">CPF</label>
+                                    <input type="text" name="cpf" class="form-control" placeholder="Cpf..." required>
                                     </div>
                                     <div class="form-group">
-                                    <label for="login">Login</label>
-                                    <input type="text" name="login" class="form-control" placeholder="Joaoteste" required>
-                                    </div>
+                                    <label for="email">Email</label>
+                                    <input type="text" name="email" class="form-control" placeholder="Email..." required>
                                     <div class="form-group">
-                                    <label for="senha">Senha</label>
-                                    <input type="text" name="senha" class="form-control" placeholder="************">
+                                        <!--Campos hidden não aparecem para o usuario digitar são setados-->
+                                        <% if (funcionario != null) { %>
+                                        <input type="hidden" class="form-control" name="idUsuario" value="<%=funcionario.getIdUsuario()%>">
+                                        <% } else { %>
+                                        <input type="hidden" class="form-control" name="idUsuario">
+                                        <% } %>
                                     </div>
-                                    <br>
-                                    
-                                    <button type="submit" class="btn btn-primary">Salvar</button>
+                                    <div class="form-group"> 
+                                        <div class="col-sm-offset-4 col-md-4">
+                                            <button type="submit" class="btn btn-primary" name="opcao" value="inserir">Salvar</button>
+                                        </div>
+                                    </div>
                                 </form>
                             </div>
                         </div>

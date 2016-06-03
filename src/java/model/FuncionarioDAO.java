@@ -7,59 +7,140 @@ package model;
 
 import controller.Aluno;
 import controller.Funcionario;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  *
  * @author uoston
  */
 public class FuncionarioDAO {
-     public boolean consultar (Funcionario funcionario){
+     public boolean consultar (Funcionario funcionario, String condicao){
       Connection conexao = ConnectionFactory.getConnection();
-//      List<Aluno> listAluno = new ArrayList<Aluno>();
+
           boolean retorno = false;
       try{
-      String sql = "select idAluno,matricula,nome,turno,turma,saldo from lp3.aluno where 1=1";
-      if(funcionario != null && funcionario.getIdUsuario() > 0){
-        sql +=" and idUsuario = "+funcionario.getIdUsuario()+"";
+      String sql = "select idFuncionario,nome,responsavelEscola,cpf,email,idUsuario,situacao from lp3.funcionario where 1=1";
+      if(funcionario.getIdUsuario() > 0){
+        sql +=" and idUsuario = '"+funcionario.getIdUsuario()+"'";
+      }else 
+      if(funcionario.getIdFuncionario()> 0){
+        sql +=" and idFuncionario = '"+funcionario.getIdFuncionario()+"'";
       }
+      if(!condicao.isEmpty()){
+            sql += condicao;
+      }
+      System.out.print(sql);
       PreparedStatement stmt = conexao.prepareStatement(sql);
       ResultSet resposta = stmt.executeQuery();
-
+      //preenche os atributos do objeto com a resposta
       while (resposta.next()){
-
-
+          funcionario.setIdFuncionario(resposta.getInt("idFuncionario"));
+          funcionario.setNome(resposta.getString("nome"));
+          funcionario.setEscola(resposta.getString("responsavelEscola"));
+          funcionario.setCpf(resposta.getString("cpf"));
+          funcionario.setEmail(resposta.getString("email"));
+          funcionario.setSituacao(resposta.getString("situacao")); 
+                    
           retorno = true;
       }
-
       stmt.close();
       conexao.close();
       }catch(SQLException e){
-        System.out.println("Erro");
+        System.out.println("Erro na consulta do funcionario");
       }
       finally{
           return retorno;
       }
   }
-    public int cadastrar(Aluno aluno) {
-        Connection conexao = ConnectionFactory.getConnection();
-        int resposta = 0;
-        try {
-            Statement sentenca = conexao.createStatement();
-            String sql = "insert into lp3.aluno(matricula,turma,turno,saldo,consumo) "
-                    + "values('" + aluno.getMatricula() + "','" + aluno.getTurma() + "','" + aluno.getTurno() + "','" + aluno.getSaldo() + "','" + aluno.getConsumo()+ "')";
-            resposta = sentenca.executeUpdate(sql);
-        } catch (SQLException erro) {
-            System.out.println("Erro");
-        } finally {
-            System.out.println("Sucesso!");
-            return resposta;
-        }
-        
+    public boolean cadastrar(Funcionario funcionario) {
+            String sql = "insert into lp3.funcionario(nome,responsavelEscola,cpf,email,idUsuario,situacao) "
+                    + "values('" + funcionario.getNome() + "','" + funcionario.getEscola()+ "','" 
+                    + funcionario.getCpf() +"','" + funcionario.getEmail()+ "','"  
+                    + funcionario.getIdUsuario()+"','" + funcionario.getSituacao()+"')";
+            FabricaConexao fabrica = new FabricaConexao();
+            return fabrica.cadastrar(sql);
     }
+    public ArrayList<Funcionario> consultarLista(Funcionario funcionario,String condicao){
+        ArrayList<Funcionario> listaFuncionario = new ArrayList<Funcionario>();
+        Connection conexao = ConnectionFactory.getConnection();
+
+        try {
+            String sql = "select idFuncionario,nome,responsavelEscola,cpf,email,idUsuario,situacao from lp3.funcionario where 1=1";
+//            
+            PreparedStatement stmt = conexao.prepareStatement(sql);
+            ResultSet resposta = stmt.executeQuery();
+            while (resposta.next()) {
+                
+                // criando o objeto Contato
+               Funcionario funcionarioResposta = new Funcionario();
+               funcionarioResposta.setIdFuncionario(resposta.getInt("idFuncionario"));
+               funcionarioResposta.setNome(resposta.getString("nome"));
+               funcionarioResposta.setEscola(resposta.getString("responsavelEscola"));
+               funcionarioResposta.setCpf(resposta.getString("cpf"));
+               funcionarioResposta.setEmail(resposta.getString("email"));
+               funcionarioResposta.setIdUsuario(resposta.getInt("idUsuario"));
+               funcionarioResposta.setSituacao(resposta.getString("situacao"));
+               
+                
+               // adicionando o objeto à lista
+               listaFuncionario.add(funcionarioResposta);
+            }
+
+            stmt.close();
+            conexao.close();
+        }catch(SQLException e){
+          System.out.println("Erro na consulta da lista funcionarios");
+        }
+        finally{
+            return listaFuncionario;
+        }
+    }
+
+  public int editar (Funcionario funcionario){
+      Connection conexao = ConnectionFactory.getConnection();
+      int resposta=0;
+      try{
+      Statement sentenca = conexao.createStatement();
+      String sql = "update lp3.funcionario "+
+                   "set nome='"+funcionario.getNome()+"', responsavelEscola='"+funcionario.getEscola()+"',cpf='"+funcionario.getCpf()+
+                   "', situacao='"+funcionario.getSituacao()+"' "+"where idFuncionario='"+funcionario.getIdFuncionario()+"'";
+
+      resposta = sentenca.executeUpdate(sql);
+      
+       sentenca.close();
+       conexao.close();
+      }catch(SQLException erro){
+           System.out.println("Erro no update do funcionario");
+      }
+      finally{
+          return resposta;
+      }
+  }
+    
+  public int excluir (Funcionario funcionario){
+      Connection conexao = ConnectionFactory.getConnection();
+      int resposta=0;
+      try{
+      Statement sentenca = conexao.createStatement();
+
+      String sql = "delete from lp3.funcionario "+
+                   "where idFuncionario="+funcionario.getIdFuncionario();
+      resposta = sentenca.executeUpdate(sql);
+      
+      sentenca.close();
+      conexao.close();
+      }catch(SQLException erro){
+           System.out.println("Erro ao excluir funcionario");
+      }
+      finally{
+          return resposta;
+      }
+  }
     
 }

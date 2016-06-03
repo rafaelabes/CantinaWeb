@@ -3,7 +3,8 @@
     Created on : 17/03/2016, 22:22:13
     Author     : Rafaela Batista
 --%>
-
+<%@page import="controller.Funcionario"%>
+<%Funcionario funcionario = (Funcionario) request.getAttribute("funcionario");%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

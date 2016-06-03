@@ -5,14 +5,38 @@
  */
 package controller;
 
+import java.util.ArrayList;
+import model.FuncionarioDAO;
+
 /**
  *
  * @author Rafaela
  */
 public class Funcionario{
     
-    private String cpf, telefone, email, nome, escola;
+    private String cpf, email, nome, escola,situacao;
     private int idFuncionario,idUsuario;
+    private ArrayList< Funcionario > listaFuncionario = new ArrayList< Funcionario >();
+
+    public Funcionario(){
+        
+    }
+    public void ConsultarListaFuncionario(){
+        Funcionario funcionario = new Funcionario();
+        funcionario.setIdFuncionario(this.getIdFuncionario());
+//        
+           FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+           this.setListaFuncionario(funcionarioDAO.consultarLista(funcionario,null));
+    }
+    public String getSituacao() {
+        return situacao;
+    }
+
+    public void setSituacao(String situacao) {
+        this.situacao = situacao;
+    }
+     
+    
 
     public int getIdFuncionario() {
         return idFuncionario;
@@ -46,25 +70,13 @@ public class Funcionario{
         this.escola = escola;
     }
 
-    private void cadastrar() {
-
-    }
-
     public String getCpf() {
         return cpf;
     }
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
+    }   
 
     public String getEmail() {
         return email;
@@ -75,16 +87,27 @@ public class Funcionario{
     }
         
     
-    private void editar() {
+    public boolean consultar(){
+        FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+        String condicao = " and situacao = 'Desbloqueado'";
+        if(funcionarioDAO.consultar(this,condicao))
+            return true;
+        return false;
+    }
+    public boolean cadastrar() {
+        FuncionarioDAO funcionario = new FuncionarioDAO();
+        return funcionario.cadastrar(this);  
+    }
+    
+    
 
+    public void editar() {
+        FuncionarioDAO funcionario = new FuncionarioDAO();
+        funcionario.editar(this);  
     }
 
-    private void bloquear() {
-
-    }
-
-    private void excluir() {
-
+    private void setListaFuncionario(ArrayList<Funcionario> consultarLista) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
