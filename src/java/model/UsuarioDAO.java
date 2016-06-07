@@ -93,7 +93,7 @@ public class UsuarioDAO {
                     + "values('" + usuario.getLogin() + "','" + usuario.getSenha() + "','" 
                     + usuario.getTipo()+ "','" + usuario.getIdEscola() +"')";
             FabricaConexao fabrica = new FabricaConexao();          
-            return  fabrica.cadastrar(sql);
+            return  fabrica.executar(sql);
     }
       public int excluir (Usuario usuario){
       Connection conexao = ConnectionFactory.getConnection();

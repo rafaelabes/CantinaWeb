@@ -18,7 +18,10 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import controller.Aluno;
 import java.sql.CallableStatement;
+import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 /**
  *
@@ -50,7 +53,7 @@ public class AlunoDAO {
       if(!condicao.isEmpty()){
             sql += condicao;
       }
-      System.out.print(sql);
+
       PreparedStatement stmt = conexao.prepareStatement(sql);
       ResultSet resposta = stmt.executeQuery();
       //preenche os atributos do objeto com a resposta
@@ -79,7 +82,7 @@ public class AlunoDAO {
                     + aluno.getSaldo() +"','" + aluno.getNome() + "','"  
                     + aluno.getIdResponsavel()+"','" + aluno.getIdUsuario()+"','" + aluno.getSituacao()+"')";
             FabricaConexao fabrica = new FabricaConexao();
-            return fabrica.cadastrar(sql);
+            return fabrica.executar(sql);
     }
     public ArrayList<Aluno> consultarLista(Aluno aluno,String condicao){
         ArrayList<Aluno> listaAluno = new ArrayList<Aluno>();
@@ -154,53 +157,44 @@ public class AlunoDAO {
           return resposta;
       }
   }
-    public boolean inserirSaldo (Aluno aluno){
-      Connection conexao = ConnectionFactory.getConnection();
-     boolean retorno = false;
-//       String sql = "{call lp3.inserirSaldo("+
-//                   + aluno.getSaldo()+ ","+aluno.getMatricula()+");}";
-      //prepare para conexao e passa a query para executar logo depois
+   public boolean inserirSaldo (Aluno aluno,Double saldo) throws SQLException{
+        boolean retorno;
+        FabricaConexao fabrica = new FabricaConexao();        
+        Date data = new Date(System.currentTimeMillis());  
+        SimpleDateFormat formatarDate = new SimpleDateFormat("yyyy-MM-dd"); 
+        String sqlInseriSaldo = "insert into lp3.saldo (dataInsercao,valor,matriculaAluno) values ('"
+                +formatarDate.format(data)+"','"+saldo+"',"+aluno.getMatricula()+");";
 
+        retorno = fabrica.executar(sqlInseriSaldo);
  
+        if(retorno){
+ 
+        }
+       
+        return retorno;
+   }
+    public boolean updataSaldo (Aluno aluno,Double saldo) throws SQLException{
+      Connection conexao = ConnectionFactory.getConnection();
+      boolean retorno = false;
       try{
-      //query para executar procedure
-       String sql = "{call lp3.inserirSaldo(?,?);}";
-      CallableStatement sentenca = conexao.prepareCall(sql);
-      sentenca.setDouble(1, aluno.getSaldo());
-      sentenca.setInt(2, aluno.getMatricula());
-      ResultSet resposta = sentenca.executeQuery();
-      while (resposta.next()) {
-          resposta.getInt("saldo");
-      }
-       //retorno = sentenca.execute();
+            double valorSaldo = 0;
+            valorSaldo = saldo + aluno.getSaldo();
+                       System.out.print(valorSaldo);
+            String sqlSaldoUp = "update lp3.aluno "+
+                      "set saldo = '"+ valorSaldo +"' where matricula='"+aluno.getMatricula()+"';";
+            PreparedStatement stmtUp = conexao.prepareStatement(sqlSaldoUp);
+            stmtUp.executeUpdate(sqlSaldoUp);
+            stmtUp.close();
+            conexao.close();
+            retorno = true;
 
-       sentenca.close();
-       conexao.close();
       }catch(SQLException e){
             System.out.println("Erro ao executar a procedure inserirSaldo");
       }
       finally{
-          return retorno;
+        return retorno;
       }
-  } 
-  /*
-         String sql = "update contatos set matricula=?, turma=?, turno=?," +
-             "turno=?, saldo=? where id=?";
-     try {
-         PreparedStatement stmt = conexao.prepareStatement(sql);
-         stmt.setString(1, contato.getNome());
-         stmt.setString(2, contato.getEmail());
-         stmt.setString(3, contato.getEndereco());
-         stmt.setDate(4, new Date(contato.getDataNascimento()
-                 .getTimeInMillis()));
-         stmt.setLong(5, contato.getId());
-         stmt.execute();
-         stmt.close();
-     } catch (SQLException e) {
-         throw new RuntimeException(e);
-     }
-  }
-*/
+ } 
   public int excluir (Aluno aluno){
       Connection conexao = ConnectionFactory.getConnection();
       int resposta=0;

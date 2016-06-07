@@ -6,19 +6,19 @@
     </servlet>
     <servlet>
         <servlet-name>ControlerUsuario</servlet-name>
-        <servlet-class>ControlerUsuario</servlet-class>
+        <servlet-class>controler.ControlerUsuario</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>responsavel</servlet-name>
-        <servlet-class>ControlerResponsavel</servlet-class>
+        <servlet-class>controler.ControlerResponsavel</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ControlerFuncionario</servlet-name>
-        <servlet-class>ControlerFuncionario</servlet-class>
+        <servlet-class>controler.ControlerFuncionario</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>ControlerAluno</servlet-name>
-        <servlet-class>ControlerAluno</servlet-class>
+        <servlet-class>controler.ControlerAluno</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ServletAluno_</servlet-name>

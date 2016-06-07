@@ -1,3 +1,7 @@
+package controler;
+
+
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -5,7 +9,6 @@
  * and open the template in the editor.
  */
 import controller.Aluno;
-import controller.Funcionario;
 import controller.Responsavel;
 import controller.Usuario;
 import java.io.IOException;
@@ -75,11 +78,6 @@ public class ControlerUsuario extends HttpServlet {
                     session.setAttribute("usuario", usuario);
                     //funcionario
                     if(usuario.getTipo() == 1){
-                        Funcionario funcionario = new Funcionario();
-                        funcionario.setIdUsuario(usuario.getIdUsuario());
-                        funcionario.consultar();
-
-                        session.setAttribute("funcionario", funcionario);
                         
                         String urlFuncionario = "/index/index_funcionario.jsp";
                         RequestDispatcher rd = request.getRequestDispatcher(urlFuncionario);
@@ -100,8 +98,8 @@ public class ControlerUsuario extends HttpServlet {
                     }else if(usuario.getTipo() == 3 ){
                         Aluno AlunoConsulta = new Aluno();
                         AlunoConsulta.setIdUsuario(usuario.getIdUsuario());
-                        
-                        if(AlunoConsulta.consultar()){
+                        String condicao = "";
+                        if(AlunoConsulta.consultar(condicao)){
                             request.setAttribute("aluno", AlunoConsulta);
 
                             String urlAluno = "/index/index_aluno.jsp";

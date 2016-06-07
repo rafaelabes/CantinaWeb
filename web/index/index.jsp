@@ -54,10 +54,9 @@
                             <div class="panel panel-default">
                                 <div class="panel-body">
 
-                                    <div class="jumbotron ">
+                                    <div class="jumbotron">
                                         <h1>Seja Bem-vindo!</h1>
                                         <p></p>
-                                         
                                         <p><a class="btn btn-primary btn-lg" href="#" role="button">Leia mais..</a></p>
                                     </div>
                                     <div class="row"> 
@@ -67,7 +66,7 @@
                                                 <img src="img/Escola.jpg" alt="Escola">
                                                 <div class="caption">
                                                     <h2>Escola</h2>
-                                                    <p>Lorem ipsum dolor sit amet, vel summo blandit at. Labore gubergren ex cum, has ex alia latine voluptatibus. Sonet equidem labores ex sea. Omnes tamquam cu vim. Diam tota velit ea sea. Cum admodum incorrupte ei. </p>
+                                                    <p>A cinco anos no mercado a school food. è um sistema que proporciona um controle integral da vida alimentar de seus filhos. </p>
                                                 </div>
                                             </div>
                                         </div>
@@ -76,16 +75,16 @@
                                                 <img src="img/Escola.jpg" alt="Eventos">
                                                 <div class="caption">
                                                     <h2>Eventos</h2>
-                                                    <p>Lorem ipsum dolor sit amet, vel summo blandit at. Labore gubergren ex cum, has ex alia latine voluptatibus. Sonet equidem labores ex sea. Omnes tamquam cu vim. Diam tota velit ea sea. Cum admodum incorrupte ei. </p>
+                                                    <p>A cinco anos dsdsdsadas no mercado a school food. è um sistema que proporciona um controle integral da vida alimentar de seus filhos. </p>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-sm-4 col-md-4">
                                             <div class="thumbnail">
-                                                <img src="img/Escola.jpg" alt="Notícias">
+                                                <img src="img/aguaDeCoco.png" alt="Notícias">
                                                 <div class="caption">
                                                     <h2>Notícias</h2>
-                                                    <p>Lorem ipsum dolor sit amet, vel summo blandit at. Labore gubergren ex cum, has ex alia latine voluptatibus. Sonet equidem labores ex sea. Omnes tamquam cu vim. Diam tota velit ea sea. Cum admodum incorrupte ei. </p>
+                                                    <p>A cinco anos no mercado a school food. è um sistema que proporciona um controle integral da vida alimentar de seus filhos. </p>
                                                 </div>
                                             </div>
                                         </div>

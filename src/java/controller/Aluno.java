@@ -5,6 +5,7 @@
  */
 package controller;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import model.AlunoDAO;
@@ -99,9 +100,8 @@ public class Aluno{
     public void setConsumo(String consumo) {
         this.consumo = consumo;
     }
-    public boolean consultar(){
+    public boolean consultar(String condicao){
         AlunoDAO alunoDAO = new AlunoDAO();
-        String condicao = " and situacao = 'Desbloqueado'";
         if(alunoDAO.consultar(this,condicao))
             return true;
         return false;
@@ -118,9 +118,10 @@ public class Aluno{
         AlunoDAO aluno = new AlunoDAO();
         aluno.editar(this);  
     }
-    public void inserirSaldo() {
+    public void inserirSaldo(Double saldo) throws SQLException {
         AlunoDAO aluno = new AlunoDAO();
-        aluno.inserirSaldo(this);  
+        aluno.inserirSaldo(this,saldo); 
+        aluno.editar(this);
     }
     public void bloquear() {
 

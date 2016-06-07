@@ -64,7 +64,7 @@ public class FuncionarioDAO {
                     + funcionario.getCpf() +"','" + funcionario.getEmail()+ "','"  
                     + funcionario.getIdUsuario()+"','" + funcionario.getSituacao()+"')";
             FabricaConexao fabrica = new FabricaConexao();
-            return fabrica.cadastrar(sql);
+            return fabrica.executar(sql);
     }
     public ArrayList<Funcionario> consultarLista(Funcionario funcionario,String condicao){
         ArrayList<Funcionario> listaFuncionario = new ArrayList<Funcionario>();

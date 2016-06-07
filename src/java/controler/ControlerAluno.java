@@ -1,3 +1,7 @@
+package controler;
+
+
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -10,8 +14,11 @@ import controller.Responsavel;
 import controller.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -138,9 +145,12 @@ public class ControlerAluno extends HttpServlet {
               }else if(opcao.equals("editar")){
                   //pega a matricula cria o objeto aluno com a matricula e consulta o aluno
                   String mat = request.getParameter("mat");
+                
                   Aluno aluno = new Aluno();
                   aluno.setMatricula(Integer.parseInt(mat));
-                  aluno.consultar();
+                  String condicao = "";
+                  aluno.consultar(condicao);
+
                   //passa o objeto aluno
                   request.setAttribute("aluno", aluno);
                   String urlAluno = "/aluno/aluno_editar.jsp";
@@ -161,12 +171,13 @@ public class ControlerAluno extends HttpServlet {
                   aluno.setTurno(turnoEditar);
                   aluno.setSituacao(situacao);
                   aluno.editar();
-                  aluno.consultar();
+                  String condicao = null;                  
+                  aluno.consultar(condicao);
 
                   //passa o objeto aluno
                  // request.setAttribute("aluno", aluno);
 
-                                  //recupera o usuario do responsavel
+                  //recupera o usuario do responsavel
                   Usuario responsavelUsuario = (Usuario)session.getAttribute("usuario"); 
                   //cria o objeto do responsavel e preenche o objeto
                   Responsavel responsavel = new Responsavel(); 
@@ -184,7 +195,8 @@ public class ControlerAluno extends HttpServlet {
                   String mat = request.getParameter("mat");
                   Aluno aluno = new Aluno();
                   aluno.setMatricula(Integer.parseInt(mat));
-                  aluno.consultar();
+                  String condicao = null;
+                  aluno.consultar(condicao);
 
   //                
   //                //recupera o usuario do responsavel
@@ -206,8 +218,25 @@ public class ControlerAluno extends HttpServlet {
                   Aluno aluno = new Aluno();
 
                   aluno.setMatricula(Integer.parseInt(request.getParameter("matricula")));
-                  aluno.setSaldo(Integer.parseInt(request.getParameter("saldo")));
-                  aluno.inserirSaldo();
+                  double saldo = Double.parseDouble(request.getParameter("saldo"));
+                  String condicao = null;
+                  aluno.consultar(condicao);
+                  System.out.print(aluno.getSaldo());
+                  aluno.inserirSaldo(saldo);
+                  
+                  //recupera o usuario do responsavel
+                  Usuario responsavelUsuario = (Usuario)session.getAttribute("usuario"); 
+                  //cria o objeto do responsavel e preenche o objeto
+                  Responsavel responsavel = new Responsavel(); 
+                  responsavel.setIdUsuario(responsavelUsuario.getIdUsuario());
+                  responsavel.consultar(); 
+                  responsavel.ConsultarListaAluno();
+                  //seta o parametro responsavel
+                  request.setAttribute("responsavel", responsavel);
+                  
+                  String urlAluno = "/aluno/aluno_consultar.jsp";
+                  RequestDispatcher rd = request.getRequestDispatcher(urlAluno);
+                  rd.forward(request,response);   
               }
             }else{
                     session.invalidate();
@@ -217,6 +246,8 @@ public class ControlerAluno extends HttpServlet {
             }
                     
 
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlerAluno.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

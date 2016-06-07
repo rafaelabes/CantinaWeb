@@ -18,7 +18,7 @@ import java.sql.SQLException;
 public class FabricaConexao {
     public FabricaConexao(){
     }
-       public boolean cadastrar(String sql) {
+       public boolean executar(String sql) {
         boolean resposta = false;
         Connection con = null;
         try {           
@@ -26,7 +26,8 @@ public class FabricaConexao {
             con = new ConnectionFactory().getConnection();          
             PreparedStatement stmt = con.prepareStatement(sql);
           
-            resposta = stmt.execute();
+            stmt.execute();
+            resposta = true;
             stmt.close();
             con.close();
             

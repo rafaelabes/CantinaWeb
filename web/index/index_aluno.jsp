@@ -34,7 +34,7 @@
                             <div class="row">
                                 <div class="col-sm-6 col-md-4">
                                     <div class="thumbnail">
-                                        <img src="../img/hamburguer.jpg" alt="psg">
+                                        <img src="img/hamburguer.jpg" alt="psg">
                                         <div class="caption">
                                             <h3>Hamburguer</h3>
                                             <p></p>
@@ -46,7 +46,7 @@
 
                                 <div class="col-sm-6 col-md-4">
                                     <div class="thumbnail">
-                                        <img src="../img/hotdog.jpg" alt="psg">
+                                        <img src="img/hotdog.jpg" alt="psg">
                                         <div class="caption">
                                             <h3>Cachorro Quente</h3>
                                             <p></p>
@@ -57,7 +57,7 @@
 
                                 <div class="col-sm-6 col-md-4">
                                     <div class="thumbnail">
-                                        <img src="../img/mistoQuente.jpg" alt="psg">
+                                        <img src="img/mistoQuente.jpg" alt="psg">
                                         <div class="caption">
                                             <h3>Misto</h3>
                                             <p></p>
@@ -71,7 +71,7 @@
                             <div class="row">
                                 <div class="col-sm-6 col-md-4">
                                     <div class="thumbnail">
-                                        <img src="../img/saladaFruta.jpg" alt="psg">
+                                        <img src="img/saladaFruta.jpg" alt="psg">
                                         <div class="caption">
                                             <h3>Salada de Fruta</h3>
                                             <p></p>
@@ -83,7 +83,7 @@
 
                                 <div class="col-sm-6 col-md-4">
                                     <div class="thumbnail">
-                                        <img src="../img/sucoLaranja.jpg" alt="psg">
+                                        <img src="img/sucoLaranja.jpg" alt="psg">
                                         <div class="caption">
                                             <h3>Suco de Laranja</h3>
                                             <p></p>
@@ -94,7 +94,7 @@
 
                                 <div class="col-sm-6 col-md-4">
                                     <div class="thumbnail">
-                                        <img src="../img/saladaFruta.jpg" alt="psg">
+                                        <img src="img/saladaFruta.jpg" alt="psg">
                                         <div class="caption">
                                             <h3>Salada de Fruta</h3>
                                             <p></p>
@@ -108,7 +108,7 @@
                             <div class="row">
                                 <div class="col-sm-6 col-md-4">
                                     <div class="thumbnail">
-                                        <img src="../img/kikkat.jpg" alt="psg">
+                                        <img src="img/kikkat.jpg" alt="psg">
                                         <div class="caption">
                                             <h3>KitKat</h3>
                                             <p></p>
@@ -120,7 +120,7 @@
 
                                 <div class="col-sm-6 col-md-4">
                                     <div class="thumbnail">
-                                        <img src="../img/mms.jpg" alt="psg">
+                                        <img src="img/mms.jpg" alt="psg">
                                         <div class="caption">
                                             <h3>MMs</h3>
                                             <p></p>
@@ -131,7 +131,7 @@
 
                                 <div class="col-sm-6 col-md-4">
                                     <div class="thumbnail">
-                                        <img src="../img/kikkat.jpg" alt="psg">
+                                        <img src="img/kikkat.jpg" alt="psg">
                                         <div class="caption">
                                             <h3>KitKat</h3>
                                             <p></p>

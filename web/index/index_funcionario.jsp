@@ -25,7 +25,7 @@
                                     <div class="row">
                                         <div class="col-sm-6 col-md-6">
                                             <div class="thumbnail">
-                                                <img src="../img/Escola.jpg" alt="psg">
+                                                <img src="img/Escola.jpg" alt="psg">
                                                 <div class="caption">
                                                     <h2>Escola</h2>
                                                     <p>A cinco anos no mercado a school food. è um sistema que proporciona um controle integral da vida alimentar de seus filhos. </p>
@@ -34,7 +34,7 @@
                                         </div>
                                         <div class="col-sm-6 col-md-6">
                                             <div class="thumbnail">
-                                                <img src="../img/livro.jpg" alt="psg">
+                                                <img src="img/livro.jpg" alt="psg">
                                                 <div class="caption">
                                                     <h2>Eventos</h2>
                                                     <p>A cinco anos no mercado a school food. è um sistema que proporciona um controle integral da vida alimentar de seus filhos. </p>
