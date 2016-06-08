@@ -9,6 +9,7 @@ package controler;
  * and open the template in the editor.
  */
 import controller.Aluno;
+import controller.Funcionario;
 import controller.Responsavel;
 import controller.Usuario;
 import java.io.IOException;
@@ -78,7 +79,11 @@ public class ControlerUsuario extends HttpServlet {
                     session.setAttribute("usuario", usuario);
                     //funcionario
                     if(usuario.getTipo() == 1){
+                        Funcionario funcionario = new Funcionario();
+                        funcionario.setIdUsuario(usuario.getIdUsuario());
+                        funcionario.consultar();
                         
+                        session.setAttribute("funcionario", funcionario);
                         String urlFuncionario = "/index/index_funcionario.jsp";
                         RequestDispatcher rd = request.getRequestDispatcher(urlFuncionario);
                         rd.forward(request,response);
@@ -90,7 +95,6 @@ public class ControlerUsuario extends HttpServlet {
                         responsavel.consultar();
 
                         session.setAttribute("responsavel", responsavel);
-                        
                         String urlResponsavel = "/index/index_responsavel.jsp";
                         RequestDispatcher rd = request.getRequestDispatcher(urlResponsavel);
                         rd.forward(request,response);    
@@ -98,14 +102,17 @@ public class ControlerUsuario extends HttpServlet {
                     }else if(usuario.getTipo() == 3 ){
                         Aluno AlunoConsulta = new Aluno();
                         AlunoConsulta.setIdUsuario(usuario.getIdUsuario());
-                        String condicao = "";
+                        String condicao = " and situacao = 'Desbloqueado'";
                         if(AlunoConsulta.consultar(condicao)){
+                            AlunoConsulta.ConsultarBebidas();
+                            AlunoConsulta.ConsultarComidas();
                             request.setAttribute("aluno", AlunoConsulta);
-
+                              
                             String urlAluno = "/index/index_aluno.jsp";
                             RequestDispatcher rd = request.getRequestDispatcher(urlAluno);
                             rd.forward(request,response); 
                         }else{
+                            session.invalidate();
                             String urlAluno = "/index/index.jsp";
                             RequestDispatcher rd = request.getRequestDispatcher(urlAluno);
                             rd.forward(request,response); 

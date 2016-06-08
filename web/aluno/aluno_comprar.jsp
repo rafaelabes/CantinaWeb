@@ -18,7 +18,7 @@
                 <div class="col-md-8">
                     <jsp:include page="../estrutura/tab.jspf"/>
                     <!-- Conteudo -->
-                    <div class="panel panel-success"
+                    <div class="panel panel-success">
                          <div class="panel panel-success">
                             <div class="panel-heading">Comprar Produto</div>
 
@@ -27,7 +27,7 @@
                                     <div class="col-sm-2">
                                         <div class="form-group">
                                         <label for="saldo">Saldo</label>
-                                        <input type="text" name="saldo" class="form-control" disabled="true" value= "<%= aluno.getSaldo() %>" >
+                                        <input type="text" class="form-control" name="saldo" value= "<%= aluno.getSaldo() %>" disabled>
                                     </div>
                                         </div>
 

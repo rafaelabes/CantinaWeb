@@ -47,7 +47,7 @@
                                             <option value="Noturno" >Noturno</option>
                                         <% } else { %>
                                             <option value="Matutino" >Matutino</option>
-                                            <option value="Vespertino" >Vespertino</option>7
+                                            <option value="Vespertino" >Vespertino</option>
                                             <option value="Noturno" selected>Noturno</option>
                                         <% } %>
                                     </select>

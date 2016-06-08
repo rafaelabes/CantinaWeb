@@ -3,6 +3,10 @@
     Created on : 21/03/2016, 20:51:28
     Author     : uoston
 --%>
+<%@page import="controller.Comida"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="controller.Bebida"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="controller.Aluno"%>
 <% Aluno aluno = (Aluno) request.getAttribute("aluno");%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -20,30 +24,56 @@
                     <!-- Conteudo -->
                     <div class="panel panel-success">
                         <div class="panel-heading">Comprar Produto</div>
-
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-2">
                                     <label for="nome">Saldo</label>
-                                    <input type="text" class="form-control" disabled="true" value="<%= aluno.getSaldo()%>">
+                                    <input type="text" class="form-control" disabled value="<%= aluno.getSaldo()%>">
                                 </div>
 
                             </div>
-                            <br>
-                            <%-----------------------------Row1---------------------------------------------------%>
                             <div class="row">
+                            <%-----------------------------Row1---------------------------------------------------%>
+                            <%
+                                 ArrayList<Bebida> bebidas = aluno.getbebidas();
+                                 Iterator<Bebida> iterator = bebidas.iterator();
+
+                                 while (iterator.hasNext()) {
+                                      Bebida bebida = (Bebida)iterator.next();
+                             %>
                                 <div class="col-sm-6 col-md-4">
                                     <div class="thumbnail">
-                                        <img src="img/hamburguer.jpg" alt="psg">
+                                        <img src="img/<%= bebida.getNome()%>.jpg" alt="psg">
                                         <div class="caption">
-                                            <h3>Hamburguer</h3>
+                                            <h3><%= bebida.getNome()%></h3>
                                             <p></p>
-                                            <p><a href="#" class="btn btn-primary" role="button">Comprar</a></p>
+                                            <p><a href="ControlerAluno?opcao=editar&bebida=<%= bebida.getIdBebida() %>" class="btn btn-primary" role="button">Comprar</a></p>
                                         </div>
                                     </div>
                                 </div>
 
+                                <% }
+                                %>
+                                         <%
+                                 ArrayList<Comida> comidas = aluno.getComidas();
+                                 Iterator<Comida> iteratorComida = comidas.iterator();
 
+                                 while (iteratorComida.hasNext()) {
+                                      Comida comida = (Comida)iteratorComida.next();
+                             %>
+                                <div class="col-sm-6 col-md-4">
+                                    <div class="thumbnail">
+                                        <img src="img/<%= comida.getNome()%>.jpg" alt="psg">
+                                        <div class="caption">
+                                            <h3><%= comida.getNome()%></h3>
+                                            <p></p>
+                                            <p><a href="ControlerAluno?opcao=editar&comida=<%= comida.getIdComida() %>" class="btn btn-primary" role="button">Comprar</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <% }
+                                %>
                                 <div class="col-sm-6 col-md-4">
                                     <div class="thumbnail">
                                         <img src="img/hotdog.jpg" alt="psg">

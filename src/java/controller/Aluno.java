@@ -19,6 +19,9 @@ public class Aluno{
     private String nome,turno, turma,  consumo,situacao;
     private int matricula,idResponsavel,idUsuario;
     private double saldo;
+    private ArrayList< Bebida > bebidas = new ArrayList< Bebida >();
+    private ArrayList< Comida > comidas = new ArrayList< Comida >();
+    
     public Aluno(){
     };
     public Aluno(int matricula, String turma , String turno, int saldo, String consumo) {
@@ -99,6 +102,39 @@ public class Aluno{
 
     public void setConsumo(String consumo) {
         this.consumo = consumo;
+    }
+
+    public ArrayList<Bebida> getbebidas() {
+        return bebidas;
+    }
+
+    public void setbebidas(ArrayList<Bebida> bebidas) {
+        this.bebidas = bebidas;
+    }
+
+    public ArrayList<Bebida> getBebidas() {
+        return bebidas;
+    }
+
+    public void setBebidas(ArrayList<Bebida> bebidas) {
+        this.bebidas = bebidas;
+    }
+
+    public ArrayList<Comida> getComidas() {
+        return comidas;
+    }
+
+    public void setComidas(ArrayList<Comida> comidas) {
+        this.comidas = comidas;
+    }
+    
+    public void ConsultarBebidas(){
+           AlunoDAO alunoDAO = new AlunoDAO();
+           this.setbebidas(alunoDAO.consultarListaBebida(this,null));
+    }
+    public void ConsultarComidas(){
+           AlunoDAO alunoDAO = new AlunoDAO();
+           this.setComidas(alunoDAO.consultarListaComida(this,null));
     }
     public boolean consultar(String condicao){
         AlunoDAO alunoDAO = new AlunoDAO();

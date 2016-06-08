@@ -5,7 +5,10 @@ package controler;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import controller.Bebida;
+import controller.Comida;
 import controller.Funcionario;
+import controller.Produto;
 import controller.Responsavel;
 import controller.Usuario;
 import java.io.IOException;
@@ -93,13 +96,13 @@ public class ControlerFuncionario extends HttpServlet {
                 //  funcionario.consultar();             
                   //cria o objeto funcionario com os dados preenchidos realiza o cadastramento
 
-                   
-                  funcionario.setNome(request.getParameter("nome"));
-                  funcionario.setEscola(request.getParameter("escola"));                                                                                            
-                  funcionario.setCpf(request.getParameter("cpf"));
-                  funcionario.setEmail(request.getParameter("email"));
-                  funcionario.setIdUsuario(Integer.parseInt(request.getParameter("idUsuario")));
-                  funcionario.setSituacao("Desbloqueado");
+//                   
+//                  funcionario.setNome(request.getParameter("nome"));
+//                  funcionario.setEscola(request.getParameter("escola"));                                                                                            
+//                  funcionario.setCpf(request.getParameter("cpf"));
+//                  funcionario.setEmail(request.getParameter("email"));
+//                  funcionario.setIdUsuario(Integer.parseInt(request.getParameter("idUsuario")));
+//                  funcionario.setSituacao("Desbloqueado");
                   
 
                   //se o cadastro for realizado seta o objeto funionarioUsuario e retorna para o cadastro
@@ -158,10 +161,10 @@ public class ControlerFuncionario extends HttpServlet {
                   Funcionario funcionario = new Funcionario();
                   funcionario.setIdFuncionario(Integer.parseInt(idFuncEditar));
                   funcionario.setNome(nomeEditar);
-                  funcionario.setEscola(escolaEditar);
-                  funcionario.setCpf(cpfEditar);
-                  funcionario.setEmail(emailEditar);
-                  funcionario.setSituacao(situacao);
+//                  funcionario.setEscola(escolaEditar);
+//                  funcionario.setCpf(cpfEditar);
+//                  funcionario.setEmail(emailEditar);
+//                  funcionario.setSituacao(situacao);
                   funcionario.editar();
                   funcionario.consultar();
 
@@ -180,7 +183,64 @@ public class ControlerFuncionario extends HttpServlet {
 
                   String urlFuncionario = "/funcionario/funcionario_consultar.jsp";
                   RequestDispatcher rd = request.getRequestDispatcher(urlFuncionario);
-                  rd.forward(request,response);                               
+                  rd.forward(request,response);
+              }else if(opcao.equals("cadastrarBebida")){
+                  Produto produto = new Produto();
+                  produto.setSituacao("Desbloqueado");
+                  produto.cadastrar();
+                  produto.consultarMax();
+                  
+                  Bebida bebida = new Bebida();
+                  bebida.setIdProduto(produto.getIdProduto());
+                  
+                  request.setAttribute("bebida", bebida);
+
+                  String urlFuncionario = "/produto/bebida_cadastrar.jsp";
+                  RequestDispatcher rd = request.getRequestDispatcher(urlFuncionario);
+                  rd.forward(request,response);
+              }else if(opcao.equals("inserirBebida")){
+                  Bebida bebida = new Bebida();
+                  
+                  bebida.setIdProduto(Integer.parseInt(request.getParameter("idProduto")));
+                  bebida.setNome(request.getParameter("nome"));
+                  bebida.setFornecedor(request.getParameter("fornecedor"));
+                  bebida.setValor( Double.parseDouble(request.getParameter("valor")));
+                  bebida.setQuantidade(Integer.parseInt(request.getParameter("quantidade")));
+                 
+                  bebida.cadastrar();
+                  
+                  String urlFuncionario = "/index/index_funcionario.jsp";
+                  RequestDispatcher rd = request.getRequestDispatcher(urlFuncionario);
+                  rd.forward(request,response);
+              }else if(opcao.equals("cadastrarComida")){
+                  Produto produto = new Produto();
+                  produto.setSituacao("Desbloqueado");
+                  produto.cadastrar();
+                  produto.consultarMax();
+                  
+                  Comida comida = new Comida();
+                  comida.setIdProduto(produto.getIdProduto());
+                  
+                  request.setAttribute("comida", comida);
+
+                  String urlFuncionario = "/produto/comida_cadastrar.jsp";
+                  RequestDispatcher rd = request.getRequestDispatcher(urlFuncionario);
+                  rd.forward(request,response);
+              }else if(opcao.equals("inserirComida")){
+                  Comida comida = new Comida();
+                  
+                  comida.setIdProduto(Integer.parseInt(request.getParameter("idProduto")));
+                  comida.setNome(request.getParameter("nome"));
+                  comida.setIdIngrediente(Integer.parseInt(request.getParameter("idIngrediente")));
+                  comida.setValor( Double.parseDouble(request.getParameter("valor")));
+                  comida.setQuantidade(Integer.parseInt(request.getParameter("quantidade")));
+
+                  comida.cadastrar();
+                  
+                  String urlFuncionario = "/index/index_funcionario.jsp";
+                  RequestDispatcher rd = request.getRequestDispatcher(urlFuncionario);
+                  rd.forward(request,response);                  
+                  
               }else{
                     session.invalidate();
                     String url = "/index/index.jsp";
@@ -189,6 +249,11 @@ public class ControlerFuncionario extends HttpServlet {
             }
                     
 
+            }else{
+                    session.invalidate();
+                    String url = "/index/index.jsp";
+                    RequestDispatcher rd = request.getRequestDispatcher(url);
+                    rd.forward(request,response);
             }
         }
         }

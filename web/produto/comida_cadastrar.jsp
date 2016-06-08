@@ -4,10 +4,12 @@
     Author     : Rafaela Batista
 --%>
 
+<%@page import="controller.Comida"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<% Comida comida = (Comida) request.getAttribute("comida");%>
 <!DOCTYPE html>
 <html>
-    <jsp:include page="../estrutura/header.jspf"/> 
+    <jsp:include page="../estrutura/header_info.jspf"/> 
     <body>
         <div class="container-fluid">  
             <jsp:include page="../estrutura/nav_funcionario.jsp"/> 
@@ -17,50 +19,48 @@
                 <div class="col-md-8">
                     <jsp:include page="../estrutura/tab_funcionario.jspf"/>
                     <!-- Conteudo -->
-                    <div class="panel panel-success"
+                    <div class="panel panel-success">
                          <div class="panel panel-success">
                             <div class="panel-heading">Cadastrar Comida</div>
                             <div class="panel-body">                        
-                                <div>
+                                <form name="Cadastro" action="ControlerFuncionario?opcao=inserirComida" method="post">
                                      <div class="form-group">
-                                    <label for="codigo">Código</label>
-                                    <input type="text" name="codigo" class="form-control" placeholder="000000" required>
+                                         <input type="hidden" name="idProduto" class="form-control" value="<%=comida.getIdProduto()%>">
                                      </div>
                                      <div class="form-group">
-                                    <label for="nome">Nome</label>
-                                    <input type="text" name="nome" class="form-control" placeholder=" Digite o nome da comida" required>
-                                    
+                                        <label for="nome">Nome</label>
+                                        <input type="text" name="nome" class="form-control"  required>                                    
                                      </div>
                                      <div class="form-group">
-                                    <label for="preco">Preço</label>
-                                    <input type="text" name="preco" class="form-control" placeholder="00.00" required>
+                                        <label for="valor">Valor</label>
+                                        <input type="text" name="valor" class="form-control" required>
                                      </div>
                                      <div class="form-group">
-                                    <label for="ingredientes">Ingredientes</label>
-                                    <select class="form-control" name="ingredientes">
-                                        <option value="">Leite</option>
-                                        <option value="s">Sal</option>
-                                        <option value="m">Açúcar</option>
-                                        <option value="l">Chocolate</option>
-                                        <option value="xl">Item</option>
-                                    </select>
+                                        <label for="idIngrediente">Ingredientes</label>
+                                        <select class="form-control" name="idIngrediente">
+                                            <option value="1">Leite</option>
+                                            <option value="2">Sal</option>
+                                            <option value="3">Açúcar</option>
+                                            <option value="4">Chocolate</option>
+                                        </select>
                                      </div>
                                      <div class="form-group">
-                                    <label for="quantidade">Quantidade</label>
-                                    <input type="text" name="quantidade" class="form-control" placeholder="0" required>
-                                     </div>
-                                    <br>
-                                    <button type="submit" class="btn btn-success">Salvar</button>
-                                    <a class="btn btn-primary" href="../produto/produto_cadastrar.jsp" role="button">Voltar</a>
-                                </div>
-                            </div>       
-
-                            <!-- Conteudo -->                    
-                        </div>
-                        <div class="col-md-2"></div>
-                    </div>
-                    <div class="row"></div>
+                                        <label for="quantidade">Quantidade</label>
+                                        <input type="text" name="quantidade" class="form-control" required>
+                                     </div>>
+                                    <div class="form-group">  
+                                        <button type="submit" class="btn btn-success">Salvar</button>
+                                    </div>
+                                </form>       
+                            </div>                           
+                           <!-- Conteudo -->     
+                          </div>
+                     </div>
                 </div>
-                </body>
-                </html>
+                <div class="col-md-2"></div>
+            </div>
+            <div class="row"></div>
+        </div>
+    </body>
+</html>
 

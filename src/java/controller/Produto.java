@@ -5,12 +5,14 @@
  */
 package controller;
 
+import model.ProdutoDAO;
+
 /**
  *
  * @author uoston
  */
 public class Produto {
-    private int idProduto,quantidade;
+    private int idProduto;
     private String situacao;
 
     public int getIdProduto() {
@@ -21,19 +23,21 @@ public class Produto {
         this.idProduto = idProduto;
     }
 
-    public int getQuantidade() {
-        return quantidade;
-    }
-
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
-    }
-
     public String getSituacao() {
         return situacao;
     }
 
     public void setSituacao(String situacao) {
         this.situacao = situacao;
-    }  
+    }
+    public boolean consultarMax(){
+        ProdutoDAO produtoDAO = new ProdutoDAO();
+        if(produtoDAO.consultarMax(this))
+            return true;
+        return false;
+    }
+    public boolean cadastrar() {
+        ProdutoDAO produtoDAO = new ProdutoDAO();
+        return produtoDAO.cadastrar(this);  
+    }
 }

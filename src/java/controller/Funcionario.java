@@ -14,9 +14,8 @@ import model.FuncionarioDAO;
  */
 public class Funcionario{
     
-    private String cpf, email, nome, escola,situacao;
-    private int idFuncionario,idUsuario;
-    private ArrayList< Funcionario > listaFuncionario = new ArrayList< Funcionario >();
+    private String  email, nome;
+    private int cpf,idFuncionario,idUsuario,responsavelEscola;
 
     public Funcionario(){
         
@@ -24,20 +23,18 @@ public class Funcionario{
     public void ConsultarListaFuncionario(){
         Funcionario funcionario = new Funcionario();
         funcionario.setIdFuncionario(this.getIdFuncionario());
-//        
+// 
            FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
-           this.setListaFuncionario(funcionarioDAO.consultarLista(funcionario,null));
-    }
-    public String getSituacao() {
-        return situacao;
     }
 
-    public void setSituacao(String situacao) {
-        this.situacao = situacao;
+    public int getResponsavelEscola() {
+        return responsavelEscola;
     }
-     
+
+    public void setResponsavelEscola(int responsavelEscola) {
+        this.responsavelEscola = responsavelEscola;
+    }
     
-
     public int getIdFuncionario() {
         return idFuncionario;
     }
@@ -62,19 +59,12 @@ public class Funcionario{
         this.idUsuario = idUsuario;
     }
 
-    public String getEscola() {
-        return escola;
-    }
 
-    public void setEscola(String escola) {
-        this.escola = escola;
-    }
-
-    public String getCpf() {
+    public int getCpf() {
         return cpf;
     }
 
-    public void setCpf(String cpf) {
+    public void setCpf(int cpf) {
         this.cpf = cpf;
     }   
 
@@ -89,8 +79,7 @@ public class Funcionario{
     
     public boolean consultar(){
         FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
-        String condicao = " and situacao = 'Desbloqueado'";
-        if(funcionarioDAO.consultar(this,condicao))
+        if(funcionarioDAO.consultar(this))
             return true;
         return false;
     }
@@ -106,8 +95,5 @@ public class Funcionario{
         funcionario.editar(this);  
     }
 
-    private void setListaFuncionario(ArrayList<Funcionario> consultarLista) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
 }

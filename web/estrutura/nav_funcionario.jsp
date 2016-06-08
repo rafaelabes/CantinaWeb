@@ -17,9 +17,9 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li ><a href="#">
                             <%
-                                Usuario usuarioFuncionario = (Usuario) session.getAttribute("funcionario");
+                                Funcionario usuarioFuncionario = (Funcionario) session.getAttribute("funcionario");
                                 
-                                out.print("Olá " + usuarioFuncionario.getLogin());
+                                out.print("Olá " + usuarioFuncionario.getNome());
                             %>
                             <span class="sr-only">(current)</span></a></li>
                     <li><a class="" href="ControlerUsuario?opcao=false">Sair</a></li>

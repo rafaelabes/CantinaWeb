@@ -17,6 +17,9 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import controller.Aluno;
+import controller.Bebida;
+import controller.Comida;
+import controller.Produto;
 import java.sql.CallableStatement;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -136,7 +139,69 @@ public class AlunoDAO {
             return listaAluno;
         }
     }
+    public ArrayList<Bebida> consultarListaBebida(Aluno aluno,String condicao){
+        ArrayList<Bebida> bebidas = new ArrayList<Bebida>();
+        Connection conexao = ConnectionFactory.getConnection();
 
+        try {
+            String sql = "select p.idProduto,b.idBebida,b.nome,b.valor from lp3.produto p " 
+                    + " inner join bebida b " 
+                    + " where p.idProduto = b.idProduto "
+                    + " and p.situacao = 'Desbloqueado'"
+                    + " and b.quantidade > 0 " ;
+            
+            PreparedStatement stmt = conexao.prepareStatement(sql);
+            ResultSet resposta = stmt.executeQuery();
+            while (resposta.next()) {
+    
+                // criando o objeto Contato
+               Bebida bebida = new Bebida();
+               bebida.setIdBebida(resposta.getInt("idBebida"));
+               bebida.setNome(resposta.getString("nome"));
+               bebida.setValor(Double.parseDouble(resposta.getString("valor")));
+               // adicionando o objeto à lista
+               bebidas.add(bebida);
+            }
+            stmt.close();
+            conexao.close();
+        }catch(SQLException e){
+          System.out.println("Erro na consulta da lista Bebidas");
+        }
+        finally{
+            return bebidas;
+        }
+    }
+    public ArrayList<Comida> consultarListaComida(Aluno aluno,String condicao){
+        ArrayList<Comida> comidas = new ArrayList<Comida>();
+        Connection conexao = ConnectionFactory.getConnection();
+
+        try {
+            String sql = "select p.idProduto,c.idComida,c.nome,c.valor from lp3.produto p " 
+                    + " inner join comida c " 
+                    + " where p.idProduto = c.idProduto "
+                    + " and p.situacao = 'Desbloqueado'"
+                    + " and b.quantidade > 0 " ;
+            
+            PreparedStatement stmt = conexao.prepareStatement(sql);
+            ResultSet resposta = stmt.executeQuery();
+            while (resposta.next()) {
+                // criando o objeto Comida
+               Comida comida = new Comida();
+               comida.setIdComida(resposta.getInt("idComida"));
+               comida.setNome(resposta.getString("nome"));
+               comida.setValor(Double.parseDouble(resposta.getString("valor")));
+               // adicionando o objeto à lista
+               comidas.add(comida);
+            }
+            stmt.close();
+            conexao.close();
+        }catch(SQLException e){
+          System.out.println("Erro na consulta da lista Bebidas");
+        }
+        finally{
+            return comidas;
+        }
+    }
   public int editar (Aluno aluno){
       Connection conexao = ConnectionFactory.getConnection();
       int resposta=0;

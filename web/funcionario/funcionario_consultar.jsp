@@ -15,7 +15,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <jsp:include page="../estrutura/header.jspf"/> 
+    <jsp:include page="../estrutura/header_info.jspf"/> 
     <body>
         <div class="container-fluid">  
             <jsp:include page="../estrutura/nav_funcionario.jsp"/> 
@@ -25,7 +25,7 @@
                 <div class="col-md-8">
                     <jsp:include page="../estrutura/tab_funcionario.jspf"/>
                     <!-- Conteudo -->
-                    <div class="panel panel-success"
+                    <div class="panel panel-success">
                          <div class="panel panel-success">
                             <div class="panel-heading">Consultar Funcionário</div>
                             <div class="panel-body">
